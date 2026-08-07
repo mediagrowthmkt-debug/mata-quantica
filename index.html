@@ -47,6 +47,7 @@
   .brand{display:flex;flex-direction:column;line-height:1}
   .brand .name{font-family:var(--serif-d);font-size:27px;font-weight:600;letter-spacing:.22em;color:var(--cream);transition:.4s}
   .brand .tag{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.38em;font-size:10px;color:var(--gold-light);margin-top:5px;transition:.4s}
+  .brand-logo-m{display:none}
   nav.solid .brand .name{color:var(--ink)} nav.solid .brand .tag{color:var(--gold)}
   .nav-cta{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.22em;font-size:13px;font-weight:600;padding:11px 26px;border:1px solid rgba(251,246,243,.6);color:var(--cream);border-radius:2px;transition:.35s}
   nav.solid .nav-cta{border-color:var(--gold);color:var(--gold-deep)}
@@ -282,8 +283,14 @@
     .suitefull{min-height:78vh} .quoteband{min-height:46vh}
     .pillars4{grid-template-columns:1fr 1fr} .founder{grid-template-columns:1fr;text-align:center;justify-items:center;padding:28px 22px}
     .wrap{padding:0 22px}
-    nav{padding:14px 20px}
+    nav,nav.solid{background:#fff;box-shadow:0 1px 0 var(--line);justify-content:center;padding:11px 20px}
+    .brand{align-items:center}
+    .brand .name,.brand .tag{display:none}
+    .brand-logo-m{display:block;height:38px;width:auto}
     .nav-cta{display:none}
+    .hero-logo{display:none}
+    .final-bg{display:none}
+    .final{background:var(--forest)}
     .trust .row,.ficha .row{grid-template-columns:1fr 1fr;gap:30px}
     .manifesto,.casas,.estrutura,.exps,.serv,.depo,.final,.eventos{padding:76px 0}
     .casas .two,.serv .cols,.final .grid{grid-template-columns:1fr;gap:26px}
@@ -303,7 +310,7 @@
 <body>
 
 <nav id="nav">
-  <a href="#top" class="brand"><span class="name">MATA QUÂNTICA</span><span class="tag">Private Eco Resort</span></a>
+  <a href="#top" class="brand"><img src="assets/logo-dark.png" alt="Mata Quântica" class="brand-logo-m"><span class="name">MATA QUÂNTICA</span><span class="tag">Private Eco Resort</span></a>
   <a href="#reservar" class="nav-cta" data-wa>Consultar disponibilidade</a>
 </nav>
 

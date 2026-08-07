@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mata Quântica · Private Eco Resort</title>
+<meta name="description" content="Uma reserva particular na Mata Atlântica, só sua. 8 suítes, até 26 hóspedes, a reserva inteira para o seu grupo. Consulte disponibilidade.">
+<meta property="og:title" content="Mata Quântica · Private Eco Resort">
+<meta property="og:description" content="O verdadeiro luxo é voltar a ouvir a natureza. Consulte a disponibilidade da reserva.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/hero.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FBF6F3; --sand:#EBDECB; --sand-soft:#F3ECE0;
+    --gold:#937447; --gold-deep:#7E5C25; --gold-light:#AD874B;
+    --forest:#1C2104; --forest-2:#2A3208;
+    --ink:#2A2620; --muted:#6E6353; --line:rgba(147,116,71,.28);
+    --serif-d:'Cormorant Garamond', Georgia, serif;
+    --serif-b:'EB Garamond', Georgia, serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--serif-b);color:var(--ink);background:var(--cream);line-height:1.65;font-size:19px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 32px}
+  .eyebrow{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.42em;font-size:14px;font-weight:600;color:var(--gold);display:inline-block}
+  h1,h2,h3{font-family:var(--serif-d);font-weight:500;line-height:1.08;letter-spacing:.005em}
+  em{font-style:italic}
+  .btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.24em;font-size:15px;font-weight:600;padding:17px 34px;border-radius:2px;transition:.35s;cursor:pointer;border:1px solid transparent}
+  .btn svg{width:18px;height:18px;fill:currentColor}
+  .btn-gold{background:var(--gold);color:var(--cream)}
+  .btn-gold:hover{background:var(--gold-deep);transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:var(--cream);border-color:rgba(251,246,243,.55)}
+  .btn-ghost:hover{background:rgba(251,246,243,.12);border-color:var(--cream)}
+  .btn-ink{background:transparent;color:var(--gold-deep);border-color:var(--gold)}
+  .btn-ink:hover{background:var(--gold);color:var(--cream)}
+  .reveal{opacity:0;transform:translateY(30px);transition:.9s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* NAV */
+  nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:20px 40px;transition:.4s}
+  nav.solid{background:rgba(251,246,243,.96);box-shadow:0 1px 0 var(--line)}
+  .brand{display:flex;flex-direction:column;line-height:1}
+  .brand .name{font-family:var(--serif-d);font-size:27px;font-weight:600;letter-spacing:.22em;color:var(--cream);transition:.4s}
+  .brand .tag{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.38em;font-size:10px;color:var(--gold-light);margin-top:5px;transition:.4s}
+  .brand-logo-m{display:none}
+  nav.solid .brand .name{color:var(--ink)} nav.solid .brand .tag{color:var(--gold)}
+  .nav-cta{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.22em;font-size:13px;font-weight:600;padding:11px 26px;border:1px solid rgba(251,246,243,.6);color:var(--cream);border-radius:2px;transition:.35s}
+  nav.solid .nav-cta{border-color:var(--gold);color:var(--gold-deep)}
+  .nav-cta:hover{background:var(--gold);color:var(--cream);border-color:var(--gold)}
+
+  /* HERO */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--cream);overflow:hidden}
+  .hero-bg{position:absolute;inset:0;background:url('assets/hero.jpg') center/cover no-repeat;transform:scale(1.05);animation:kb 24s ease-out forwards}
+  @keyframes kb{to{transform:scale(1.16)}}
+  .hero-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,8,.5) 0%,rgba(16,18,8,.22) 40%,rgba(16,18,8,.75) 100%)}
+  .hero-inner{position:relative;z-index:2;max-width:920px;padding:0 28px}
+  .hero .eyebrow{color:var(--gold-light);margin-bottom:28px}
+  .hero h1{font-size:clamp(46px,7.4vw,96px);color:var(--cream);text-shadow:0 2px 40px rgba(0,0,0,.35)}
+  .hero h1 em{color:#EED9B6}
+  .hero p.sub{font-size:clamp(19px,2.2vw,24px);max-width:660px;margin:26px auto 0;color:rgba(251,246,243,.92)}
+  .hero-actions{margin-top:42px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .hero-chips{margin-top:34px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .hero-chips span{font-family:var(--serif-d);letter-spacing:.16em;text-transform:uppercase;font-size:12px;color:rgba(251,246,243,.85);border:1px solid rgba(251,246,243,.32);padding:8px 16px;border-radius:40px}
+  .scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:2;color:rgba(251,246,243,.7);font-family:var(--serif-d);letter-spacing:.3em;text-transform:uppercase;font-size:11px;animation:bob 2.6s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(8px)}}
+
+  /* TRUST STRIP */
+  .trust{background:var(--forest);color:var(--cream);padding:54px 0}
+  .trust .row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .trust .stat .n{font-family:var(--serif-d);font-size:clamp(38px,5vw,58px);color:var(--gold-light);font-weight:600;line-height:1}
+  .trust .stat .l{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:rgba(251,246,243,.78);margin-top:10px}
+
+  /* MANIFESTO / cream */
+  .manifesto{background:var(--cream);padding:120px 0;text-align:center}
+  .manifesto .chapter{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.4em;font-size:13px;color:var(--gold);margin-bottom:26px}
+  .manifesto h2{font-size:clamp(34px,5vw,60px);color:var(--ink);max-width:900px;margin:0 auto 26px}
+  .manifesto p{color:var(--muted);font-size:21px;max-width:640px;margin:0 auto}
+  .manifesto .orn{color:var(--gold);font-size:20px;letter-spacing:.4em;margin:34px 0 0}
+
+  /* FLORESTA / dark full-bleed */
+  .floresta{position:relative;min-height:78vh;display:flex;align-items:center;color:var(--cream);overflow:hidden}
+  .floresta-bg{position:absolute;inset:0;background:url('assets/floresta.jpg') center/cover no-repeat}
+  .floresta-scrim{position:absolute;inset:0;background:linear-gradient(90deg,rgba(16,18,8,.82) 0%,rgba(16,18,8,.5) 55%,rgba(16,18,8,.25) 100%)}
+  .floresta .wrap{position:relative;z-index:2}
+  .floresta .box{max-width:560px}
+  .floresta .eyebrow{color:var(--gold-light);margin-bottom:20px}
+  .floresta h2{font-size:clamp(34px,4.6vw,56px);color:var(--cream);margin-bottom:22px}
+  .floresta h2 em{color:#EED9B6}
+  .floresta p{color:rgba(251,246,243,.86);margin-bottom:16px}
+
+  /* AS CASAS */
+  .casas{background:var(--sand-soft);padding:110px 0}
+  .casas .head{text-align:center;max-width:680px;margin:0 auto 60px}
+  .casas .head h2{font-size:clamp(34px,4.6vw,54px);margin:14px 0}
+  .casas .head p{color:var(--muted)}
+  .casas .two{display:grid;grid-template-columns:1fr 1fr;gap:30px;margin-bottom:30px}
+  .house{background:var(--cream);border:1px solid var(--line);border-radius:3px;overflow:hidden}
+  .house img{width:100%;height:300px;object-fit:cover}
+  .house .body{padding:32px 30px}
+  .house .k{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.24em;font-size:12px;color:var(--gold)}
+  .house h3{font-size:30px;margin:8px 0 10px;color:var(--ink)}
+  .house p{color:var(--muted);font-size:17px}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .mini{position:relative;height:300px;border-radius:3px;overflow:hidden}
+  .mini img{width:100%;height:100%;object-fit:cover;transition:.7s}
+  .mini:hover img{transform:scale(1.08)}
+  .mini span{position:absolute;left:0;right:0;bottom:0;padding:40px 22px 18px;color:var(--cream);font-family:var(--serif-d);font-size:22px;background:linear-gradient(180deg,transparent,rgba(16,18,8,.8))}
+
+  /* ESTRUTURA */
+  .estrutura{background:var(--cream);padding:110px 0}
+  .estrutura .head{text-align:center;max-width:680px;margin:0 auto 56px}
+  .estrutura .head h2{font-size:clamp(34px,4.6vw,54px);margin:14px 0}
+  .estrutura .head p{color:var(--muted)}
+  .egrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .eitem{background:var(--sand-soft);border:1px solid var(--line);border-radius:3px;padding:26px 20px;text-align:center;transition:.35s}
+  .eitem:hover{background:var(--sand);transform:translateY(-4px)}
+  .eitem .ic{font-size:26px;color:var(--gold);line-height:1}
+  .eitem .t{font-family:var(--serif-d);font-size:19px;color:var(--ink);margin-top:12px;line-height:1.25}
+
+  /* EXPERIENCIAS */
+  .exps{background:var(--forest);color:var(--cream);padding:110px 0}
+  .exps .head{text-align:center;max-width:700px;margin:0 auto 56px}
+  .exps .head .eyebrow{color:var(--gold-light)}
+  .exps .head h2{font-size:clamp(34px,4.6vw,54px);color:var(--cream);margin:14px 0}
+  .exps .head p{color:rgba(251,246,243,.8)}
+  .exgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .exc{position:relative;height:340px;border-radius:3px;overflow:hidden}
+  .exc img{width:100%;height:100%;object-fit:cover;transition:.7s;filter:saturate(1.02)}
+  .exc:hover img{transform:scale(1.07)}
+  .exc .cap{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:40px 24px 22px;background:linear-gradient(180deg,transparent 40%,rgba(16,18,8,.85));color:var(--cream)}
+  .exc .cap h3{font-size:25px}
+  .exc .cap p{font-size:15px;color:rgba(251,246,243,.8);margin-top:4px}
+  .region{margin-top:34px;text-align:center;color:rgba(251,246,243,.82);font-size:17px}
+  .region b{font-family:var(--serif-d);color:var(--gold-light);letter-spacing:.04em}
+
+  /* DEPOIMENTOS */
+  .depo{background:var(--sand-soft);padding:104px 0}
+  .depo .head{text-align:center;margin-bottom:52px}
+  .depo .head h2{font-size:clamp(32px,4.2vw,48px);margin-top:12px}
+  .dgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .dcard{background:var(--cream);border:1px solid var(--line);border-radius:3px;padding:36px 30px}
+  .dcard .stars{color:var(--gold);letter-spacing:.2em;font-size:15px}
+  .dcard p{font-family:var(--serif-d);font-style:italic;font-size:22px;color:var(--ink);line-height:1.4;margin:16px 0 20px}
+  .dcard .who{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.16em;font-size:13px;color:var(--gold-deep)}
+
+  /* EVENTOS */
+  .eventos{position:relative;color:var(--cream);overflow:hidden;padding:120px 0}
+  .eventos-bg{position:absolute;inset:0;background:url('assets/circulo.jpg') center/cover no-repeat}
+  .eventos-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,8,.72),rgba(16,18,8,.82))}
+  .eventos .wrap{position:relative;z-index:2;text-align:center;max-width:760px}
+  .eventos .eyebrow{color:var(--gold-light)}
+  .eventos h2{font-size:clamp(34px,4.6vw,54px);color:var(--cream);margin:14px 0 18px}
+  .eventos p{color:rgba(251,246,243,.86);max-width:620px;margin:0 auto 14px}
+  .eventos .tags{margin-top:26px;display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+  .eventos .tags span{font-family:var(--serif-d);letter-spacing:.14em;text-transform:uppercase;font-size:12px;border:1px solid rgba(251,246,243,.35);padding:8px 16px;border-radius:40px;color:rgba(251,246,243,.9)}
+
+  /* SERVICOS */
+  .serv{background:var(--cream);padding:110px 0}
+  .serv .head{text-align:center;max-width:680px;margin:0 auto 56px}
+  .serv .head h2{font-size:clamp(34px,4.6vw,54px);margin:14px 0}
+  .serv .head p{color:var(--muted)}
+  .serv .cols{display:grid;grid-template-columns:1fr 1fr;gap:44px;max-width:900px;margin:0 auto}
+  .serv .col h4{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.26em;font-size:14px;color:var(--gold);padding-bottom:14px;margin-bottom:8px;border-bottom:1px solid var(--line)}
+  .serv ul{list-style:none}
+  .serv li{padding:12px 0 12px 26px;position:relative;color:var(--ink);font-size:18px;border-bottom:1px dotted rgba(147,116,71,.2)}
+  .serv li:before{content:"";position:absolute;left:0;top:20px;width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg)}
+
+  /* FICHA / info tecnicas */
+  .ficha{background:var(--sand);padding:70px 0}
+  .ficha .row{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+  .ficha .stat .n{font-family:var(--serif-d);font-size:clamp(30px,3.6vw,44px);color:var(--gold-deep);font-weight:600;line-height:1}
+  .ficha .stat .l{color:var(--muted);font-size:15px;margin-top:8px}
+
+  /* GALERIA */
+  .galeria{background:var(--forest)}
+  .gstrip{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+  .gstrip .g{position:relative;overflow:hidden;height:260px}
+  .gstrip .g.big{grid-column:span 2}
+  .gstrip img{width:100%;height:100%;object-fit:cover;transition:.8s}
+  .gstrip .g:hover img{transform:scale(1.08)}
+
+  /* CTA FINAL + WIZARD */
+  .final{position:relative;color:var(--cream);overflow:hidden;padding:120px 0}
+  .final-bg{position:absolute;inset:0;background:url('assets/ctabg.jpg') center/cover no-repeat}
+  .final-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,26,6,.8),rgba(20,26,6,.92))}
+  .final .wrap{position:relative;z-index:2}
+  .final .grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .final .eyebrow{color:var(--gold-light);margin-bottom:20px}
+  .final h2{font-size:clamp(36px,4.8vw,58px);color:var(--cream);margin-bottom:20px}
+  .final h2 em{color:#EED9B6}
+  .final p{color:rgba(251,246,243,.86);max-width:460px;margin-bottom:16px}
+  .final .scar{margin-top:18px;font-family:var(--serif-d);letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--gold-light)}
+  .final .contact-lines{margin-top:24px;font-size:17px;color:rgba(251,246,243,.8)}
+  .final .contact-lines a{color:var(--gold-light)}
+  .rform{background:rgba(251,246,243,.98);color:var(--ink);padding:42px 38px;border-radius:4px;box-shadow:0 30px 70px -30px rgba(0,0,0,.6)}
+  .rform .fsub{color:var(--muted);font-size:16px;margin-bottom:22px}
+  .rform label{display:block;font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--gold-deep);margin:16px 0 7px}
+  .rform input,.rform select,.rform textarea{width:100%;padding:13px 15px;border:1px solid var(--line);background:#fff;font-family:var(--serif-b);font-size:17px;color:var(--ink);border-radius:2px}
+  .rform input:focus,.rform select:focus{outline:none;border-color:var(--gold)}
+  #wizard{min-height:420px;display:flex;flex-direction:column}
+  .wz-progress{margin-bottom:24px}
+  .wz-bar{height:3px;background:rgba(147,116,71,.2);border-radius:3px;overflow:hidden}
+  .wz-bar span{display:block;height:100%;width:25%;background:var(--gold);transition:width .45s cubic-bezier(.2,.7,.2,1)}
+  .wz-count{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.2em;font-size:12px;color:var(--muted);margin-top:10px}
+  .wz-count b{color:var(--gold-deep)}
+  .wz-step{display:none;animation:wzIn .45s ease}
+  .wz-step.is-active{display:block}
+  @keyframes wzIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+  .wz-step h3{font-size:27px;color:var(--ink)}
+  .wz-opts{display:flex;flex-direction:column;gap:11px;margin-top:20px}
+  .wz-opt{text-align:left;font-family:var(--serif-b);font-size:19px;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:2px;padding:15px 20px;cursor:pointer;transition:.25s;position:relative}
+  .wz-opt:hover{border-color:var(--gold);background:var(--sand-soft);padding-left:26px}
+  .wz-opt:after{content:"›";position:absolute;right:20px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:26px;opacity:0;transition:.25s}
+  .wz-opt:hover:after{opacity:1;right:16px}
+  .wz-back{background:none;border:none;color:var(--muted);font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.18em;font-size:12px;cursor:pointer;margin-top:20px;padding:6px 0}
+  .wz-back:hover{color:var(--gold-deep)}
+  .wz-resumo{margin-top:18px;font-size:15px;color:var(--muted);line-height:1.7;border-top:1px dotted var(--line);padding-top:14px}
+  .wz-resumo b{color:var(--gold-deep);font-family:var(--serif-d)}
+  #wzSend{width:100%;justify-content:center;margin-top:22px}
+
+  /* FOOTER */
+  footer{background:#141806;color:rgba(251,246,243,.7);padding:60px 0 40px;text-align:center}
+  footer .fname{font-family:var(--serif-d);font-size:34px;letter-spacing:.24em;color:var(--cream);font-weight:600}
+  footer .ftag{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.4em;font-size:11px;color:var(--gold-light);margin-top:10px}
+  footer .flinks{margin:24px 0 18px;display:flex;gap:26px;justify-content:center;flex-wrap:wrap;font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.18em;font-size:13px}
+  footer .flinks a:hover{color:var(--gold-light)}
+  footer .fnote{font-size:13px;color:rgba(251,246,243,.42);margin-top:14px}
+
+  /* WHATS FLOAT + STICKY MOBILE */
+  .wfloat{position:fixed;right:24px;bottom:24px;z-index:80;width:60px;height:60px;border-radius:50%;background:var(--gold);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px -8px rgba(126,92,37,.7);transition:.3s}
+  .wfloat:hover{transform:scale(1.08);background:var(--gold-deep)}
+  .wfloat svg{width:32px;height:32px;fill:var(--cream)}
+  .mbar{display:none}
+
+  /* SUITE FULL-SCREEN + QUOTE BAND */
+  .suitefull{position:relative;min-height:100vh;display:flex;align-items:flex-end;color:var(--cream);overflow:hidden}
+  .suitefull-bg{position:absolute;inset:0;background:url('assets/suite.jpg') center/cover no-repeat}
+  .suitefull-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,8,.12) 0%,rgba(16,18,8,.12) 42%,rgba(16,18,8,.82) 100%)}
+  .suitefull .wrap{position:relative;z-index:2;padding-bottom:72px}
+  .suitefull .eyebrow{color:var(--gold-light);margin-bottom:16px}
+  .suitefull h2{font-size:clamp(36px,5vw,66px);color:var(--cream);max-width:660px}
+  .suitefull h2 em{color:#EED9B6}
+  .suitefull p{color:rgba(251,246,243,.92);max-width:520px;margin-top:16px}
+  .quoteband{position:relative;min-height:56vh;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--cream);overflow:hidden}
+  .quoteband-bg{position:absolute;inset:0;background:url('assets/interior.jpg') center/cover no-repeat}
+  .quoteband-scrim{position:absolute;inset:0;background:rgba(16,18,8,.56)}
+  .quoteband .q{position:relative;z-index:2;max-width:840px;padding:0 28px}
+  .quoteband .q h2{font-family:var(--serif-d);font-style:italic;font-weight:500;font-size:clamp(30px,4.4vw,52px);color:var(--cream);line-height:1.22}
+  .quoteband .q .who{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.3em;font-size:12px;color:var(--gold-light);margin-top:22px}
+
+  /* LOGO */
+  .hero-logo{width:min(320px,64vw);margin:0 auto 22px;display:block;filter:drop-shadow(0 4px 22px rgba(0,0,0,.45))}
+  footer .flogo{width:230px;margin:0 auto 8px;display:block}
+  /* PROPOSITO / INSTITUTO */
+  .prop{position:relative;color:var(--cream);overflow:hidden;padding:110px 0;background:var(--forest)}
+  .prop-bg{position:absolute;inset:0;background:url('assets/ctabg.jpg') center/cover no-repeat;opacity:.20}
+  .prop-scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(16,18,8,.9),rgba(16,18,8,.95))}
+  .prop .wrap{position:relative;z-index:2}
+  .prop .top{text-align:center;max-width:760px;margin:0 auto 54px}
+  .prop .top .eyebrow{color:var(--gold-light)}
+  .prop .top h2{font-size:clamp(32px,4.4vw,52px);color:var(--cream);margin:14px 0 18px}
+  .prop .top h2 em{color:#EED9B6}
+  .prop .top p{color:rgba(251,246,243,.85)}
+  .prop .top .mult{font-family:var(--serif-d);font-style:italic;color:var(--gold-light);font-size:20px;margin-top:14px}
+  .pillars4{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;max-width:920px;margin:0 auto 54px}
+  .pillars4 .p{border-top:1px solid var(--gold);padding-top:16px}
+  .pillars4 .p .t{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.1em;font-size:15px;color:rgba(251,246,243,.9);line-height:1.35}
+  .founder{display:grid;grid-template-columns:auto 1fr;gap:30px;align-items:center;max-width:820px;margin:0 auto;background:rgba(251,246,243,.05);border:1px solid rgba(147,116,71,.35);border-radius:4px;padding:34px}
+  .founder img{width:130px;height:130px;border-radius:50%;object-fit:cover;border:2px solid var(--gold)}
+  .founder .k{font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.16em;font-size:12px;color:var(--gold-light)}
+  .founder h3{font-size:28px;color:var(--cream);margin:4px 0 10px}
+  .founder p{color:rgba(251,246,243,.82);font-size:16px}
+  .founder .quote{font-family:var(--serif-d);font-style:italic;color:#EED9B6;font-size:19px;margin-top:12px}
+  .founder .handles{margin-top:12px;font-family:var(--serif-d);letter-spacing:.1em;font-size:13px;color:var(--gold-light)}
+
+  @media(max-width:900px){
+    body{font-size:18px}
+    .suitefull{min-height:78vh} .quoteband{min-height:46vh}
+    .pillars4{grid-template-columns:1fr 1fr} .founder{grid-template-columns:1fr;text-align:center;justify-items:center;padding:28px 22px}
+    .wrap{padding:0 22px}
+    nav,nav.solid{background:#fff;box-shadow:0 1px 0 var(--line);justify-content:center;padding:11px 20px}
+    .brand{align-items:center}
+    .brand .name,.brand .tag{display:none}
+    .brand-logo-m{display:block;height:38px;width:auto}
+    .nav-cta{display:none}
+    .hero-logo{display:none}
+    .final-bg{display:none}
+    .final{background:var(--forest)}
+    .trust .row,.ficha .row{grid-template-columns:1fr 1fr;gap:30px}
+    .manifesto,.casas,.estrutura,.exps,.serv,.depo,.final,.eventos{padding:76px 0}
+    .casas .two,.serv .cols,.final .grid{grid-template-columns:1fr;gap:26px}
+    .cards3,.egrid,.exgrid,.dgrid{grid-template-columns:1fr 1fr}
+    .egrid{grid-template-columns:1fr 1fr}
+    .gstrip{grid-template-columns:repeat(2,1fr)}
+    .gstrip .g,.gstrip .g.big{grid-column:span 1;height:200px}
+    .floresta-scrim{background:linear-gradient(180deg,rgba(16,18,8,.55),rgba(16,18,8,.8))}
+    .wfloat{bottom:82px}
+    .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:79;background:rgba(20,26,6,.97);padding:12px 16px;gap:10px;align-items:center;justify-content:space-between}
+    .mbar .lbl{font-family:var(--serif-d);color:var(--cream);font-size:15px;letter-spacing:.08em}
+    .mbar a{background:var(--gold);color:var(--cream);font-family:var(--serif-d);text-transform:uppercase;letter-spacing:.16em;font-size:12px;font-weight:600;padding:12px 18px;border-radius:2px}
+  }
+  @media(max-width:560px){ .dgrid,.exgrid{grid-template-columns:1fr} }
+</style>
+<style id="__prev">*{animation:none!important;transition:none!important}.reveal{opacity:1!important;transform:none!important}
+.hero{min-height:760px!important}.hero-bg{transform:none!important}.floresta{min-height:520px!important}.suitefull{min-height:640px!important}.quoteband{min-height:400px!important}.eventos,.final,.prop{padding:80px 0!important}.scroll-hint{display:none!important}</style></head>
+<body>
+
+<nav id="nav">
+  <a href="#top" class="brand"><img src="assets/logo-dark.png" alt="Mata Quântica" class="brand-logo-m"><span class="name">MATA QUÂNTICA</span><span class="tag">Private Eco Resort</span></a>
+  <a href="#reservar" class="nav-cta" data-wa>Consultar disponibilidade</a>
+</nav>
+
+<!-- 2. HERO -->
+<header class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-scrim"></div>
+  <div class="hero-inner">
+    <img src="assets/logo.png" alt="Mata Quântica Private Eco Resort" class="hero-logo">
+    <span class="eyebrow">Reserva Natural Privada · Mata Atlântica</span>
+    <h1>O verdadeiro luxo é<br>voltar a <em>ouvir a natureza</em></h1>
+    <p class="sub">Uma reserva particular só sua. Hectares de floresta preservada, vista para o mar e o silêncio como o maior dos privilégios.</p>
+    <div class="hero-actions">
+      <a href="#reservar" class="btn btn-gold" data-wa>Consultar disponibilidade</a>
+      <a href="#reserva" class="btn btn-ghost">Conhecer a reserva</a>
+    </div>
+    <div class="hero-chips"><span>Até 26 hóspedes</span><span>8 suítes premium</span><span>A reserva inteira só sua</span></div>
+  </div>
+  <div class="scroll-hint">Role para descobrir</div>
+</header>
+
+<!-- 3. TRUST -->
+<section class="trust">
+  <div class="wrap">
+    <div class="row">
+      <div class="stat"><div class="n" data-count="26">26</div><div class="l">Hóspedes<br>com conforto total</div></div>
+      <div class="stat"><div class="n" data-count="8">8</div><div class="l">Suítes premium<br>em 2 casas</div></div>
+      <div class="stat"><div class="n" data-count="100">100</div><div class="l">m² de salão<br>com teto retrátil</div></div>
+      <div class="stat"><div class="n">1</div><div class="l">Grupo por vez<br>a reserva é só sua</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. O SILENCIO -->
+<section class="manifesto" id="reserva">
+  <div class="wrap reveal">
+    <div class="chapter">Capítulo I · O Silêncio</div>
+    <h2>O privilégio mais raro do nosso tempo não é possuir mais.<br>É conseguir <em>desaparecer</em> por alguns dias.</h2>
+    <p>Desconecte. Respire. Aproveite. Nem todos os lugares são encontrados, alguns precisam ser descobertos. Este é um deles.</p>
+    <div class="orn">✦</div>
+  </div>
+</section>
+
+<!-- 5. A FLORESTA -->
+<section class="floresta">
+  <div class="floresta-bg"></div>
+  <div class="floresta-scrim"></div>
+  <div class="wrap">
+    <div class="box reveal">
+      <span class="eyebrow">Capítulo II · A Floresta</span>
+      <h2>A Mata Atlântica não envolve a Gaia Soul.<br><em>Ela define a experiência.</em></h2>
+      <p>São hectares de floresta preservada, onde o silêncio é interrompido apenas pelo vento, pelos pássaros e pelo movimento das marés.</p>
+      <p>Aqui, a natureza nunca foi um detalhe. Ela sempre foi o destino.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. AS CASAS -->
+<section class="casas" id="casas">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Capítulo III · As Casas</span>
+      <h2>Dois refúgios, uma mesma essência</h2>
+      <p>Oito suítes premium distribuídas em duas casas independentes. Espaço para reunir quem você ama, com a privacidade de quem não divide a reserva com ninguém.</p>
+    </div>
+    <div class="two reveal">
+      <div class="house">
+        <img src="assets/living.jpg" alt="Casa de Chegada da reserva Gaia Soul">
+        <div class="body"><div class="k">Casa de Chegada</div><h3>3 suítes</h3><p>O primeiro encontro com a Mata Quântica. Sala principal integrada à mata, varandas suspensas e a vista que abre para o mar.</p></div>
+      </div>
+      <div class="house">
+        <img src="assets/casa2.jpg" alt="Casa 2 da reserva Gaia Soul">
+        <div class="body"><div class="k">Casa 2</div><h3>5 suítes coletivas</h3><p>Conforto, natureza e privacidade em equilíbrio. Ideal para grupos maiores que querem ficar perto, sem abrir mão do espaço.</p></div>
+      </div>
+    </div>
+    <div class="cards3 reveal">
+      <div class="mini"><img src="assets/varanda.jpg" alt="Varanda com cama e vista para o mar"><span>Varanda com a cama</span></div>
+      <div class="mini"><img src="assets/sala.jpg" alt="Sala principal integrada à natureza"><span>Sala principal</span></div>
+      <div class="mini"><img src="assets/piscina.jpg" alt="Piscina de borda infinita com vista para a baía"><span>Piscina de borda infinita</span></div>
+      <div class="mini"><img src="assets/quadra.jpg" alt="Quadra de areia na reserva"><span>Quadra de areia</span></div>
+      <div class="mini"><img src="assets/academia.jpg" alt="Academia completa da reserva"><span>Academia completa</span></div>
+      <div class="mini"><img src="assets/meditacao.jpg" alt="Salão de meditação com teto retrátil"><span>Salão de meditação</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6b. AS SUITES full-screen -->
+<section class="suitefull">
+  <div class="suitefull-bg"></div>
+  <div class="suitefull-scrim"></div>
+  <div class="wrap">
+    <div class="reveal">
+      <span class="eyebrow">As Suítes</span>
+      <h2>Dormir com a mata<br>de um lado e o <em>mar do outro</em></h2>
+      <p>Cada suíte foi pensada para o descanso com charme e tranquilidade. Espaços amplos, iluminados e integrados à paisagem, para você se sentir em casa, longe de tudo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6c. FRASE POETICA -->
+<section class="quoteband">
+  <div class="quoteband-bg"></div>
+  <div class="quoteband-scrim"></div>
+  <div class="q reveal">
+    <h2>A arquitetura foi feita para desaparecer.<br>O que fica é a natureza.</h2>
+    <div class="who">Mata Quântica · Private Eco Resort</div>
+  </div>
+</section>
+
+<!-- 7. ESTRUTURA -->
+<section class="estrutura">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Estrutura Completa</span>
+      <h2>Tudo pensado para você só ter que chegar</h2>
+      <p>Ambientes criados para hospedagem, convivência, bem-estar e experiências exclusivas em meio à natureza.</p>
+    </div>
+    <div class="egrid reveal">
+      <div class="eitem"><div class="ic">∿</div><div class="t">Piscina orgânica de borda infinita</div></div>
+      <div class="eitem"><div class="ic">⌂</div><div class="t">Salão de 100 m² com teto retrátil</div></div>
+      <div class="eitem"><div class="ic">◈</div><div class="t">Academia completa</div></div>
+      <div class="eitem"><div class="ic">△</div><div class="t">Deck mirante</div></div>
+      <div class="eitem"><div class="ic">◇</div><div class="t">Quadra de areia</div></div>
+      <div class="eitem"><div class="ic">♨</div><div class="t">Churrasqueira e forno de pizza</div></div>
+      <div class="eitem"><div class="ic">⌘</div><div class="t">Cozinha equipada</div></div>
+      <div class="eitem"><div class="ic">⚑</div><div class="t">Adega</div></div>
+      <div class="eitem"><div class="ic">✦</div><div class="t">Capela</div></div>
+      <div class="eitem"><div class="ic">≋</div><div class="t">Água de nascente</div></div>
+      <div class="eitem"><div class="ic">➶</div><div class="t">Wi-Fi Starlink</div></div>
+      <div class="eitem"><div class="ic">⛵</div><div class="t">Equipamentos náuticos</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. EXPERIENCIAS -->
+<section class="exps" id="experiencias">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Experiências</span>
+      <h2>Você não visita a natureza. Você pertence a ela.</h2>
+      <p>Cada dia pode ser uma nova descoberta. Do banho de floresta ao céu estrelado, da água ao movimento do barco.</p>
+    </div>
+    <div class="exgrid reveal">
+      <div class="exc"><img src="assets/banho.jpg" alt="Banho de floresta na Mata Atlântica"><div class="cap"><h3>Banho de Floresta</h3><p>Reconecte corpo e mente entre as árvores.</p></div></div>
+      <div class="exc"><img src="assets/meditacao.jpg" alt="Salão de meditação com teto retrátil"><div class="cap"><h3>Meditação sob as estrelas</h3><p>Salão de 100 m² que se abre para o céu.</p></div></div>
+      <div class="exc"><img src="assets/aquaterapia.jpg" alt="Aquaterapia em cachoeira"><div class="cap"><h3>Aquaterapia em cachoeira</h3><p>A água corrente como terapia.</p></div></div>
+      <div class="exc"><img src="assets/barco.jpg" alt="Navegação pela baía"><div class="cap"><h3>Navegar pela baía</h3><p>O mar faz parte da experiência.</p></div></div>
+      <div class="exc"><img src="assets/esportes.jpg" alt="Esportes aquáticos na baía"><div class="cap"><h3>Esportes aquáticos</h3><p>Do stand up ao bike aquático, para todos.</p></div></div>
+      <div class="exc"><img src="assets/trilha.jpg" alt="Trilhas na floresta preservada"><div class="cap"><h3>Trilhas na mata</h3><p>Cada caminho revela um novo cenário.</p></div></div>
+      <div class="exc"><img src="assets/convento.jpg" alt="Convento Jesuíta de São Francisco"><div class="cap"><h3>Convento Jesuíta</h3><p>História colonial a um passeio de barco.</p></div></div>
+      <div class="exc"><img src="assets/forte.jpg" alt="Forte da Salamina"><div class="cap"><h3>Forte da Salamina</h3><p>O patrimônio da baía, só para o seu grupo.</p></div></div>
+      <div class="exc"><img src="assets/quilombo.jpg" alt="Vivência em um quilombo"><div class="cap"><h3>Vivência em Quilombo</h3><p>Cultura, sabores e raízes da região.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. DEPOIMENTOS (FAKE TEMPORARIOS: trocar pelos reais) -->
+<section class="depo">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Quem viveu, conta</span>
+      <h2>A experiência que não cabe em fotos</h2>
+    </div>
+    <div class="dgrid reveal">
+      <div class="dcard"><div class="stars">★★★★★</div><p>"Voltei outra pessoa. Três dias sem sinal e a cabeça inteira no lugar."</p><div class="who">Marina R. · São Paulo</div></div>
+      <div class="dcard"><div class="stars">★★★★★</div><p>"Reservamos a casa inteira para a família. Ninguém queria ir embora."</p><div class="who">Rodrigo M. · Salvador</div></div>
+      <div class="dcard"><div class="stars">★★★★★</div><p>"Fizemos o retiro da empresa aqui. Foi o melhor investimento do ano."</p><div class="who">Camila F. · Rio de Janeiro</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. EVENTOS E RETIROS -->
+<section class="eventos">
+  <div class="eventos-bg"></div>
+  <div class="eventos-scrim"></div>
+  <div class="wrap">
+    <span class="eyebrow">Eventos e Retiros</span>
+    <h2>Um cenário à altura da sua imersão</h2>
+    <p>Da celebração íntima ao retiro que transforma um time inteiro. A reserva inteira se adapta ao seu propósito.</p>
+    <div class="tags"><span>Famílias</span><span>Grupos de amigos</span><span>Empresas</span><span>Retiros</span><span>Imersões</span><span>Lançamentos</span><span>Celebrações</span></div>
+    <div style="margin-top:36px"><a href="#reservar" class="btn btn-gold" data-wa>Planejar minha experiência</a></div>
+  </div>
+</section>
+
+<!-- 11. SERVICOS -->
+<section class="serv">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">Serviços e Reserva</span>
+      <h2>Uma estadia sob medida</h2>
+      <p>Da chegada de barco ao chef particular, cada detalhe é personalizado conforme o perfil do seu grupo, com suporte dedicado do início ao fim.</p>
+    </div>
+    <div class="cols reveal">
+      <div class="col"><h4>Já incluso</h4><ul>
+        <li>Transporte de barco</li><li>Equipe de apoio no local</li><li>Estrutura completa</li><li>Suporte durante a hospedagem</li>
+      </ul></div>
+      <div class="col"><h4>Sob consulta</h4><ul>
+        <li>Chef particular</li><li>Cozinheira</li><li>Motorista exclusivo</li><li>Passeios privativos</li><li>Experiências guiadas</li><li>Eventos e retiros</li>
+      </ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- 12. FICHA / INFORMACOES TECNICAS -->
+<section class="ficha">
+  <div class="wrap">
+    <div class="row reveal">
+      <div class="stat"><div class="n">Até 26</div><div class="l">hóspedes</div></div>
+      <div class="stat"><div class="n">8 suítes</div><div class="l">premium em 2 casas</div></div>
+      <div class="stat"><div class="n">4 diárias</div><div class="l">estadia mínima</div></div>
+      <div class="stat"><div class="n">100%</div><div class="l">reserva exclusiva</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 13. GALERIA -->
+<section class="galeria">
+  <div class="gstrip">
+    <div class="g big"><img src="assets/interior.jpg" alt="Sala aberta ao pôr do sol"></div>
+    <div class="g"><img src="assets/living.jpg" alt="Living com vista para a baía"></div>
+    <div class="g"><img src="assets/piscinapessoas.jpg" alt="Piscina com vista para o mar"></div>
+    <div class="g"><img src="assets/baia.jpg" alt="Vista da baía a partir da reserva"></div>
+    <div class="g"><img src="assets/gastronomia.jpg" alt="Gastronomia na reserva"></div>
+    <div class="g"><img src="assets/chegada.jpg" alt="Chegada e recepção na reserva"></div>
+    <div class="g big"><img src="assets/hero.jpg" alt="Vista aérea da reserva natural privada"></div>
+  </div>
+</section>
+
+<!-- 13b. PROPOSITO / INSTITUTO GAIA SOUL -->
+<section class="prop">
+  <div class="prop-bg"></div>
+  <div class="prop-scrim"></div>
+  <div class="wrap">
+    <div class="top reveal">
+      <span class="eyebrow">Propósito</span>
+      <h2>Parte do que você vive aqui<br><em>transforma o mundo lá fora</em></h2>
+      <p>Parte dos recursos do Mata Quântica Private Eco Resort é revertida para o Instituto Gaia Soul, uma organização sem fins lucrativos que promove a cultura oceânica, a conservação da biodiversidade marinha e a educação ambiental.</p>
+      <div class="mult">Mais do que uma experiência, um propósito que se multiplica.</div>
+    </div>
+    <div class="pillars4 reveal">
+      <div class="p"><div class="t">Educação e cultura oceânica</div></div>
+      <div class="p"><div class="t">Pesquisa e conservação marinha</div></div>
+      <div class="p"><div class="t">Navegação e ciência cidadã</div></div>
+      <div class="p"><div class="t">Formação de jovens e comunidades</div></div>
+    </div>
+    <div class="founder reveal">
+      <img src="assets/marcelo.jpg" alt="Marcelo Telles, fundador do Instituto Gaia Soul">
+      <div>
+        <div class="k">Instituto Gaia Soul · Fundador</div>
+        <h3>Marcelo Telles</h3>
+        <p>Criador da Mata Quântica e fundador do Instituto Gaia Soul. Oceanógrafo, mergulhador e navegador, dedica a vida a conectar pessoas ao oceano, à ciência e à consciência ambiental.</p>
+        <div class="quote">"A natureza nos surpreende, a natureza nos desafia, a natureza nos inspira."</div>
+        <div class="handles">@marcelodtelles · @institutogaiasoul</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14. CTA FINAL + WIZARD -->
+<section class="final" id="reservar">
+  <div class="final-bg"></div>
+  <div class="final-scrim"></div>
+  <div class="wrap">
+    <div class="grid">
+      <div class="reveal">
+        <span class="eyebrow">Reserve a sua estadia</span>
+        <h2>Sua reserva particular<br>espera em <em>silêncio</em></h2>
+        <p>As datas são limitadas por natureza: só um grupo por vez tem a reserva inteira. Responda quatro perguntas rápidas e receba a proposta da sua experiência.</p>
+        <div class="scar">Datas limitadas · um grupo por vez</div>
+        <div class="contact-lines">
+          Instagram <a href="#" data-ig>@institutogaiasoul</a><br>
+          <a href="#" data-site>institutogaiasoul.ong.br</a>
+        </div>
+      </div>
+      <div class="rform reveal" id="wizard">
+        <div class="wz-progress"><div class="wz-bar"><span id="wzFill"></span></div><div class="wz-count">Passo <b id="wzNow">1</b> de 4</div></div>
+        <div class="wz-step is-active" data-step="1">
+          <h3>Qual é a ocasião?</h3><div class="fsub">Assim preparamos a reserva do seu jeito.</div>
+          <div class="wz-opts">
+            <button class="wz-opt" data-field="ocasiao" data-val="Retiro e bem-estar">Retiro e bem-estar</button>
+            <button class="wz-opt" data-field="ocasiao" data-val="Família e amigos">Família e amigos</button>
+            <button class="wz-opt" data-field="ocasiao" data-val="Escapada a dois">Escapada a dois</button>
+            <button class="wz-opt" data-field="ocasiao" data-val="Evento ou empresa">Evento ou empresa</button>
+            <button class="wz-opt" data-field="ocasiao" data-val="Celebração especial">Celebração especial</button>
+          </div>
+        </div>
+        <div class="wz-step" data-step="2">
+          <h3>Quantas pessoas?</h3><div class="fsub">A reserva é sua por inteiro, sem dividir com ninguém.</div>
+          <div class="wz-opts">
+            <button class="wz-opt" data-field="pessoas" data-val="Até 2">Até 2</button>
+            <button class="wz-opt" data-field="pessoas" data-val="3 a 6">3 a 6</button>
+            <button class="wz-opt" data-field="pessoas" data-val="7 a 12">7 a 12</button>
+            <button class="wz-opt" data-field="pessoas" data-val="13 a 26">13 a 26</button>
+          </div>
+          <button class="wz-back" data-back>Voltar</button>
+        </div>
+        <div class="wz-step" data-step="3">
+          <h3>Quando você sonha em vir?</h3><div class="fsub">As datas são limitadas: só um grupo por vez.</div>
+          <div class="wz-opts">
+            <button class="wz-opt" data-field="periodo" data-val="Ainda estou definindo">Ainda estou definindo</button>
+            <button class="wz-opt" data-field="periodo" data-val="Próximo mês">Próximo mês</button>
+            <button class="wz-opt" data-field="periodo" data-val="Próximos 3 meses">Próximos 3 meses</button>
+            <button class="wz-opt" data-field="periodo" data-val="Tenho uma data específica">Tenho uma data específica</button>
+          </div>
+          <button class="wz-back" data-back>Voltar</button>
+        </div>
+        <div class="wz-step" data-step="4">
+          <h3>Só faltam seus dados</h3><div class="fsub">Continuamos a conversa no WhatsApp com a proposta da sua experiência.</div>
+          <label for="f-nome">Nome</label><input type="text" id="f-nome" placeholder="Seu nome">
+          <label for="f-fone">Seu WhatsApp</label><input type="tel" id="f-fone" placeholder="(71) 90000-0000">
+          <div class="wz-resumo" id="wzResumo"></div>
+          <button type="button" class="btn btn-ink" id="wzSend"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2.1-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4z"/></svg> Falar no WhatsApp</button>
+          <button class="wz-back" data-back>Voltar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img src="assets/logo.png" alt="Mata Quântica Private Eco Resort" class="flogo">
+    <div class="ftag">Private Eco Resort · Mata Atlântica</div>
+    <div class="flinks"><a href="#" data-wa>WhatsApp</a><a href="#" data-ig>Instagram</a><a href="#" data-site>Site oficial</a></div>
+    <div class="fnote">O verdadeiro luxo é voltar a ouvir a natureza.</div>
+  </div>
+</footer>
+
+<a class="wfloat" href="#" data-wa aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.5 14.4c-.3-.1-1.7-.9-2-1-.3-.1-.5-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2.1-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.6 1.1 2.8c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.7-.7 1.9-1.3.2-.7.2-1.2.2-1.3-.1-.2-.3-.2-.6-.4zM12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2z"/></svg></a>
+
+<div class="mbar"><span class="lbl">Reserva inteira só sua</span><a href="#" data-wa>Consultar</a></div>
+
+<script>
+  const CONFIG = {
+    whatsapp: "5571999972427",
+    instagram: "institutogaiasoul",
+    site: "https://institutogaiasoul.ong.br",
+    saudacao: "Ola! Vim pela pagina da Mata Quantica (Private Eco Resort) e gostaria de consultar a disponibilidade da reserva."
+  };
+  function waLink(msg){ return "https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(msg||CONFIG.saudacao); }
+  document.querySelectorAll('[data-wa]').forEach(a=>{ a.href=waLink(); a.target="_blank"; a.rel="noopener"; });
+  document.querySelectorAll('[data-ig]').forEach(a=>{ a.href="https://instagram.com/"+CONFIG.instagram; a.target="_blank"; a.rel="noopener"; a.textContent="@"+CONFIG.instagram; });
+  document.querySelectorAll('[data-site]').forEach(a=>{ a.href=CONFIG.site; a.target="_blank"; a.rel="noopener"; a.textContent=CONFIG.site.replace(/^https?:\/\//,''); });
+
+  /* wizard */
+  const WZ={total:4,step:1,data:{}};
+  const wzSteps=document.querySelectorAll('.wz-step'), wzFill=document.getElementById('wzFill'), wzNow=document.getElementById('wzNow');
+  function wzGo(n){ WZ.step=Math.max(1,Math.min(WZ.total,n)); wzSteps.forEach(s=>s.classList.toggle('is-active',+s.dataset.step===WZ.step)); wzFill.style.width=(WZ.step/WZ.total*100)+"%"; wzNow.textContent=WZ.step; if(WZ.step===WZ.total) wzResumo(); }
+  function wzResumo(){ const d=WZ.data,b=document.getElementById('wzResumo'); let h=""; if(d.ocasiao)h+="Ocasião: <b>"+d.ocasiao+"</b><br>"; if(d.pessoas)h+="Pessoas: <b>"+d.pessoas+"</b><br>"; if(d.periodo)h+="Período: <b>"+d.periodo+"</b>"; b.innerHTML=h; }
+  document.querySelectorAll('.wz-opt').forEach(btn=>btn.addEventListener('click',()=>{ WZ.data[btn.dataset.field]=btn.dataset.val; wzGo(WZ.step+1); }));
+  document.querySelectorAll('[data-back]').forEach(b=>b.addEventListener('click',()=>wzGo(WZ.step-1)));
+  document.getElementById('wzSend').addEventListener('click',()=>{
+    const nome=document.getElementById('f-nome').value.trim(), fone=document.getElementById('f-fone').value.trim(), d=WZ.data;
+    let t="Ola! Sou "+(nome||"...")+" e quero consultar a disponibilidade da Mata Quantica (Private Eco Resort).";
+    if(d.ocasiao)t+="\nOcasiao: "+d.ocasiao; if(d.pessoas)t+="\nPessoas: "+d.pessoas; if(d.periodo)t+="\nPeriodo: "+d.periodo; if(fone)t+="\nMeu WhatsApp: "+fone;
+    window.open(waLink(t),"_blank","noopener");
+  });
+  wzGo(1);
+
+  /* nav solid */
+  const nav=document.getElementById('nav');
+  const onScroll=()=>nav.classList.toggle('solid',window.scrollY>80); onScroll(); addEventListener('scroll',onScroll,{passive:true});
+
+  /* reveal */
+  const io=new IntersectionObserver((es)=>{es.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in'); io.unobserve(en.target);}})},{threshold:.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* count-up */
+  const cio=new IntersectionObserver((es)=>{es.forEach(en=>{ if(en.isIntersecting){ const el=en.target, end=+el.dataset.count; let cur=0; const step=Math.max(1,Math.round(end/40)); const t=setInterval(()=>{cur+=step; if(cur>=end){cur=end; clearInterval(t);} el.textContent=cur;},22); cio.unobserve(el);} })},{threshold:.6});
+  document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+</script>
+</body>
+</html>
