@@ -1,0 +1,24 @@
+{
+  "schema": "ceu/v1",
+  "kind": "website_html",
+  "title": "LP Mata Quântica · Private Eco Resort (anúncios)",
+  "marca": "Site rebrandado para MATA QUÂNTICA · Private Eco Resort (logo transparente em assets/logo.png, no hero e rodapé). Gaia Soul = instituto sem fins lucrativos que a Mata Quântica financia (seção Propósito com fundador Marcelo Telles).",
+  "client": "24_instituto_gaia_soul",
+  "created": "2026-08-07",
+  "output": "index.html",
+  "source": {
+    "html": "index.html",
+    "assets_dir": "assets",
+    "origin_deck": "Cópia de APRESENTAÇÃO MATA QUANTIQUA.pptx (42 slides, lidos integralmente)"
+  },
+  "estrategia": "14 blocos com técnicas de conversão/atenção (herói 50ms, prova em números, ritmo claro/escuro, escassez/FOMO, storytelling, wizard de micro-compromisso). Pesquisa em LP de luxo, neuromarketing/dopamina, marketing de experiência e retiros.",
+  "blocos": ["nav+cta","hero","trust/numeros","o silencio","a floresta","as casas (2 casas + 6 amenidades)","as suites full-screen","frase poetica","estrutura completa","experiencias (9 cards)","depoimentos (FAKE temporarios)","eventos e retiros","servicos e reserva","ficha tecnica","galeria","cta final + wizard","rodape"],
+  "cobertura_deck": "Reflete todo o conteudo do deck (44 paginas): O Silencio, A Floresta, As Casas (Chegada 3 + Casa 2 com 5 = 8 suites/26 hospedes), suites, varanda com a cama, sala, piscina borda infinita, quadra de areia, academia, salao de meditacao 100m2, estrutura completa (13 itens), experiencias (banho de floresta, meditacao, aquaterapia, navegar, esportes aquaticos, trilhas, Convento Jesuita, Forte da Salamina, Quilombo), eventos e retiros, servicos (incluso x sob consulta), informacoes tecnicas.",
+  "palette": {"cream":"#FBF6F3","sand":"#EBDECB","sand_soft":"#F3ECE0","gold":"#937447","gold_deep":"#7E5C25","gold_light":"#AD874B","forest":"#1C2104","ink":"#2A2620"},
+  "fonts": {"display":"Cormorant Garamond","body":"EB Garamond","source":"Google Fonts (identidade serifada do deck)"},
+  "imagens": "Fotos com texto queimado LIMPAS no Higgsfield (nano_banana_2 / Nano Banana Pro). ~25 fotos tratadas. Logo (assets/logo.png) tratada no Higgsfield (fundo sólido) + key para PNG transparente. Casa 1 (living.jpg/casa1.jpg) e Casa 2 (casa2.jpg) = artes novas enviadas pelo Bruno, limpas. Marcelo (marcelo.jpg) recortado do material do instituto.",
+  "config": {"whatsapp":"5571999972427 (Instituto Gaia Soul, +55 71 99997-2427)","instagram":"institutogaiasoul","site":"institutogaiasoul.ong.br"},
+  "pendencias": ["Trocar os 3 depoimentos FAKE pelos reais quando houver","Publicar (GitHub Pages / Hostinger) se aprovado"],
+  "render_command": "open '/Users/bruno/clientes_convidados/clientes/24_instituto_gaia_soul/website/lps/mata_quantiqua/index.html'",
+  "edit_notes": "CONFIG (WhatsApp/Instagram/site) no bloco <script>. Cores em :root. Fotos em assets/. Depoimentos no bloco marcado como FAKE. Wizard passo a passo monta a mensagem do WhatsApp com ocasião/pessoas/período."
+}
