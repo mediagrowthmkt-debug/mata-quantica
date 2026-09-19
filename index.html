@@ -223,7 +223,9 @@ footer .fine{margin-top:26px;font-size:.72rem;letter-spacing:.1em;opacity:.4;fon
 .modal form{padding:clamp(26px,4vw,38px)}
 .modal .fld{margin-bottom:18px}
 .modal .fld label{display:block;font-family:'Jost',sans-serif;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:9px}
-.modal .fld input,.modal .fld select{width:100%;font-family:'EB Garamond',serif;font-size:1.06rem;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:11px;padding:14px 16px;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none;appearance:none}
+.modal .fld input,.modal .fld select,.modal .fld textarea{width:100%;font-family:'EB Garamond',serif;font-size:1.06rem;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:11px;padding:14px 16px;transition:border-color .25s,box-shadow .25s;-webkit-appearance:none;appearance:none}
+.modal .fld textarea{resize:vertical;min-height:84px;line-height:1.5}
+.modal .fld textarea:focus{outline:none;border-color:var(--leaf);box-shadow:0 0 0 3px rgba(111,168,74,.16)}
 .modal .fld select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%236B5D48' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 16px center;padding-right:42px}
 .modal .fld input:focus,.modal .fld select:focus{outline:none;border-color:var(--leaf);box-shadow:0 0 0 3px rgba(111,168,74,.16)}
 .modal .fld input::placeholder{color:#b7ad99}
@@ -813,12 +815,12 @@ footer .fine{margin-top:26px;font-size:.72rem;letter-spacing:.1em;opacity:.4;fon
       <span class="kicker">Consultar disponibilidade</span>
       <h3 id="lmTitle">Reserve a sua imersão na Mata Quântica</h3>
       <p>Conte pra gente a data desejada e retornamos com a disponibilidade.</p>
-      <div class="steps" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="steps" aria-hidden="true"><span class="dot on"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
     </div>
     <form id="leadForm" novalidate>
       <!-- ETAPA 1 -->
       <div class="step" data-step="1">
-        <div class="step-legend">Etapa 1 de 3 · Quem é você</div>
+        <div class="step-legend">Etapa 1 de 4 · Quem é você</div>
         <div class="fld">
           <label for="lf_nome">Seu nome</label>
           <input id="lf_nome" name="nome" type="text" placeholder="Nome completo" required>
@@ -827,34 +829,79 @@ footer .fine{margin-top:26px;font-size:.72rem;letter-spacing:.1em;opacity:.4;fon
           <label for="lf_wpp">WhatsApp</label>
           <input id="lf_wpp" name="wpp" type="tel" inputmode="tel" placeholder="(00) 00000-0000" required>
         </div>
+        <div class="fld">
+          <label for="lf_email">E-mail (opcional)</label>
+          <input id="lf_email" name="email" type="email" placeholder="voce@email.com">
+        </div>
       </div>
       <!-- ETAPA 2 -->
       <div class="step" data-step="2" hidden>
-        <div class="step-legend">Etapa 2 de 3 · A sua imersão</div>
+        <div class="step-legend">Etapa 2 de 4 · A sua imersão</div>
+        <div class="fld">
+          <label for="lf_motivo">Qual é a ocasião?</label>
+          <select id="lf_motivo" name="motivo">
+            <option value="">Selecione</option>
+            <option>Retiro ou imersão</option>
+            <option>Evento corporativo</option>
+            <option>Celebração ou confraternização</option>
+            <option>Férias em família ou grupo</option>
+            <option>Casamento ou bodas</option>
+            <option>Ainda estou planejando</option>
+          </select>
+        </div>
         <div class="row">
           <div class="fld">
             <label for="lf_data">Para qual data?</label>
             <input id="lf_data" name="data" type="date" required>
           </div>
           <div class="fld">
-            <label for="lf_pessoas">Quantas pessoas</label>
-            <select id="lf_pessoas" name="pessoas">
+            <label for="lf_diarias">Quantas diárias</label>
+            <select id="lf_diarias" name="diarias">
               <option value="">Selecione</option>
-              <option>1 a 4</option>
-              <option>5 a 8</option>
-              <option>9 a 12</option>
-              <option>13 a 16</option>
+              <option>2 diárias (mínimo)</option>
+              <option>3 diárias</option>
+              <option>4 diárias</option>
+              <option>5 ou mais</option>
+              <option>Ainda não sei</option>
             </select>
           </div>
-        </div>
-        <div class="fld">
-          <label for="lf_email">E-mail (opcional)</label>
-          <input id="lf_email" name="email" type="email" placeholder="voce@email.com">
         </div>
       </div>
       <!-- ETAPA 3 -->
       <div class="step" data-step="3" hidden>
-        <div class="step-legend">Etapa 3 de 3 · Confirme e envie</div>
+        <div class="step-legend">Etapa 3 de 4 · O seu grupo</div>
+        <div class="row">
+          <div class="fld">
+            <label for="lf_pessoas">Quantas pessoas</label>
+            <select id="lf_pessoas" name="pessoas">
+              <option value="">Selecione</option>
+              <option>1 a 6</option>
+              <option>7 a 12</option>
+              <option>13 a 18</option>
+              <option>19 a 26</option>
+              <option>Mais de 26</option>
+            </select>
+          </div>
+          <div class="fld">
+            <label for="lf_origem">Como conheceu?</label>
+            <select id="lf_origem" name="origem">
+              <option value="">Selecione</option>
+              <option>Instagram</option>
+              <option>Indicação de amigo</option>
+              <option>Google ou busca</option>
+              <option>Já conheço a Mata Quântica</option>
+              <option>Outro</option>
+            </select>
+          </div>
+        </div>
+        <div class="fld">
+          <label for="lf_obs">Conte um pouco mais (opcional)</label>
+          <textarea id="lf_obs" name="obs" rows="3" placeholder="O que você busca nessa experiência? Alguma necessidade especial?"></textarea>
+        </div>
+      </div>
+      <!-- ETAPA 4 -->
+      <div class="step" data-step="4" hidden>
+        <div class="step-legend">Etapa 4 de 4 · Confirme e envie</div>
         <div class="review" id="lf_review"></div>
       </div>
       <input class="hp" type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
@@ -961,7 +1008,16 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
   const dataBR=(v)=>{if(/^\d{4}-\d{2}-\d{2}$/.test(v)){const p=v.split('-');return p[2]+'/'+p[1]+'/'+p[0]}return v};
   let cur=0;
   const buildReview=()=>{
-    const rows=[['Nome',form.nome.value.trim()],['WhatsApp',form.wpp.value.trim()],['Data',dataBR(form.data.value)],['Pessoas',form.pessoas.value||'A combinar'],['E-mail',form.email.value.trim()||'—']];
+    const rows=[
+      ['Nome',form.nome.value.trim()],
+      ['WhatsApp',form.wpp.value.trim()],
+      ['E-mail',form.email.value.trim()||'—'],
+      ['Ocasião',form.motivo.value||'A combinar'],
+      ['Data',dataBR(form.data.value)],
+      ['Diárias',form.diarias.value||'A combinar'],
+      ['Pessoas',form.pessoas.value||'A combinar'],
+      ['Como conheceu',form.origem.value||'—']
+    ];
     reviewBox.innerHTML=rows.map(r=>'<div class="r"><b>'+r[0]+'</b><span>'+(r[1]||'—').replace(/[<>]/g,'')+'</span></div>').join('');
   };
   const showStep=(i)=>{
@@ -1001,8 +1057,9 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
     const nome=form.nome.value.trim(),wpp=form.wpp.value.trim(),data=form.data.value;
     if(!nome||!wpp||!data){if(form.reportValidity)form.reportValidity();return}
     const pessoas=form.pessoas.value,email=form.email.value.trim();
+    const motivo=form.motivo.value,diarias=form.diarias.value,origem=form.origem.value,obs=form.obs.value.trim();
     sending=true;nextBtn.disabled=true;nextBtn.textContent='Enviando…';
-    const payload={nome:nome,wpp:wpp,data:dataBR(data),pessoas:pessoas,email:email,company_website:''};
+    const payload={nome:nome,wpp:wpp,data:dataBR(data),pessoas:pessoas,email:email,motivo:motivo,diarias:diarias,origem:origem,obs:obs,company_website:''};
     try{
       await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true});
     }catch(err){/* captura é server-side; não trava a UX do usuário */}
