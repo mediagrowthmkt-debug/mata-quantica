@@ -302,11 +302,6 @@ footer .fine{margin-top:26px;font-size:.72rem;letter-spacing:.1em;opacity:.4;fon
 .pdfmodal .nav svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pdfmodal .counter{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);color:#F5EFE3;font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.22em;opacity:.85}
 @media(max-width:640px){.pdfmodal .stage{padding:8px 10px 44px}.pdfmodal .nav{width:44px;height:44px}.pdfmodal .nav.prev{left:8px}.pdfmodal .nav.next{right:8px}}
-/* COPIAR URL DA IMAGEM */
-.imgurl-chip{position:fixed;z-index:120;display:none;align-items:center;gap:7px;background:rgba(16,20,10,.88);color:#F5EFE3;font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 12px;border:1px solid rgba(245,239,227,.28);border-radius:3px;cursor:pointer;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);transition:background .25s;box-shadow:0 8px 24px -10px rgba(0,0,0,.6)}
-.imgurl-chip:hover{background:rgba(16,20,10,.98)}
-.imgurl-chip.show{display:inline-flex}
-.imgurl-chip svg{width:13px;height:13px;fill:currentColor;opacity:.9}
 .tech-note{max-width:760px;margin:34px auto 0;text-align:center;font-family:'EB Garamond',serif;font-size:clamp(1rem,2vw,1.15rem);color:var(--ink-soft);line-height:1.6}
 /* SERVIÇOS E RESERVA */
 .services{padding:clamp(70px,10vw,120px) 24px;background:var(--paper);color:var(--ink)}
@@ -903,40 +898,6 @@ footer .fine{margin-top:26px;font-size:.72rem;letter-spacing:.1em;opacity:.4;fon
   let sx=null;
   box.addEventListener('touchstart',e=>{sx=e.touches[0].clientX},{passive:true});
   box.addEventListener('touchend',e=>{if(sx==null)return;const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>48)go(dx<0?1:-1);sx=null},{passive:true});
-})();
-
-/* COPIAR URL DA IMAGEM (inclusive as com texto por cima / fundo CSS) */
-(function(){
-  const chip=document.createElement('button');
-  chip.type='button';chip.className='imgurl-chip';
-  chip.innerHTML='<svg viewBox="0 0 24 24"><path d="M16 1H4a2 2 0 00-2 2v14h2V3h12V1zm3 4H8a2 2 0 00-2 2v14a2 2 0 002 2h11a2 2 0 002-2V7a2 2 0 00-2-2zm0 16H8V7h11v14z"/></svg><span>Copiar URL</span>';
-  document.body.appendChild(chip);
-  const label=chip.querySelector('span');
-  let curEl=null,curUrl='',hideT=null,overChip=false;
-  const bgUrl=(el)=>{if(!el)return '';const b=getComputedStyle(el).backgroundImage;const m=b&&b.match(/url\(["']?(.*?)["']?\)/);return m?m[1]:''};
-  const abs=(u)=>{try{return new URL(u,location.href).href}catch(e){return u}};
-  const urlOf=(el)=>{
-    if(el.tagName==='IMG')return el.currentSrc||el.src;
-    if(bgUrl(el))return abs(bgUrl(el));
-    const c=el.querySelector('.bg,.ph,.media,[style*="background-image"]');
-    return c?abs(bgUrl(c)):'';
-  };
-  const place=()=>{if(!curEl)return;const r=curEl.getBoundingClientRect();let x=r.right-10-chip.offsetWidth,y=r.top+10;x=Math.max(8,Math.min(x,innerWidth-chip.offsetWidth-8));y=Math.max(8,Math.min(y,innerHeight-chip.offsetHeight-8));chip.style.left=x+'px';chip.style.top=y+'px'};
-  const show=(el,url)=>{curEl=el;curUrl=url;label.textContent='Copiar URL';chip.classList.add('show');place()};
-  const hide=()=>{chip.classList.remove('show');curEl=null};
-  const targets=[...document.querySelectorAll('.card,.bleed,.media,.hero,.reserve,.split .media,img')];
-  targets.forEach(el=>{
-    el.addEventListener('mouseenter',()=>{const u=urlOf(el);if(!u)return;clearTimeout(hideT);show(el,u)});
-    el.addEventListener('mouseleave',()=>{hideT=setTimeout(()=>{if(!overChip)hide()},260)});
-  });
-  chip.addEventListener('mouseenter',()=>{overChip=true;clearTimeout(hideT)});
-  chip.addEventListener('mouseleave',()=>{overChip=false;hideT=setTimeout(hide,200)});
-  chip.addEventListener('click',async()=>{
-    try{await navigator.clipboard.writeText(curUrl)}catch(e){const t=document.createElement('textarea');t.value=curUrl;t.style.position='fixed';t.style.opacity='0';document.body.appendChild(t);t.select();try{document.execCommand('copy')}catch(_){}t.remove()}
-    label.textContent='Copiado!';setTimeout(()=>{if(chip.classList.contains('show'))label.textContent='Copiar URL'},1400);
-  });
-  addEventListener('scroll',()=>{if(curEl)place()},{passive:true});
-  addEventListener('resize',()=>{if(curEl)place()});
 })();
 
 /* SLIDES: carrossel fixo na página + tela cheia (mesmo estado) */
