@@ -1060,9 +1060,18 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
     const motivo=form.motivo.value,diarias=form.diarias.value,origem=form.origem.value,obs=form.obs.value.trim();
     sending=true;nextBtn.disabled=true;nextBtn.textContent='Enviando…';
     const payload={nome:nome,wpp:wpp,data:dataBR(data),pessoas:pessoas,email:email,motivo:motivo,diarias:diarias,origem:origem,obs:obs,company_website:''};
+    let sent=false;
     try{
-      await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),keepalive:true});
-    }catch(err){/* captura é server-side; não trava a UX do usuário */}
+      const r=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      sent=r&&r.ok;
+    }catch(err){sent=false}
+    if(!sent){
+      // fallback: tenta de novo sem preflight (form-urlencoded) antes de desistir
+      try{const b=new URLSearchParams(payload).toString();
+        const r2=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b});
+        sent=r2&&r2.ok;
+      }catch(e2){}
+    }
     form.style.display='none';
     if(doneEl)doneEl.classList.add('on');
     try{sessionStorage.setItem(KEY,'1')}catch(_){}
