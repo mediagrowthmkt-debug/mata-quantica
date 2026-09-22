@@ -1,0 +1,29 @@
+{
+  "schema": "ceu/v1",
+  "kind": "website_html",
+  "title": "LP Mata Quântica · Réveillon / Fim de Ano (captura)",
+  "marca": "MATA QUÂNTICA · Private Eco Resort. DESIGN DO SITE V2 (o que está no ar): paleta creme #F5EFE3 / musgo #2C3521 / verde-folha #6FA84A (CTA) / dourado #B4934E, fontes Cormorant Garamond + EB Garamond + Jost. Logo clara https://mataquantica.com.br/assets/logo-clara.png. Assets referenciados por URL ABSOLUTA do domínio (todos validados 200).",
+  "client": "24_instituto_gaia_soul",
+  "created": "2026-09-22",
+  "updated": "2026-09-22",
+  "output": "index.html",
+  "publica_em": "https://mataquantica.com.br/reveillon/ (subpasta do repo mediagrowthmkt-debug/mata-quantica; usa ../assets do site)",
+  "objetivo": "Campanha de fim de ano: captar leads que querem ALUGAR a reserva inteira no Réveillon/Natal/temporada de verão. Anúncio -> LP -> quiz -> CRM -> atendimento.",
+  "regras_travadas": "SEM PREÇO na página (decisão de reunião: valores não definidos, não aparecem em anúncio). Foco em escassez (poucas datas, um grupo por vez, 'as datas de fim de ano esgotam primeiro'). Posicionamento aprovado: 'Hospedagem com propósito numa reserva particular na Mata Atlântica'. Sem travessão, acentos PT-BR.",
+  "captura": {
+    "endpoint": "https://mediagrowth-n8n.63kuy3.easypanel.host/webhook/mataquantica-reveillon (n8n, workflow id IHNWkQrA0ju73jzE '[MATA QUANTICA] Reveillon LP -> GHL Novo Lead', ativo, CORS allowedOrigins:*)",
+    "fluxo": "POST JSON -> n8n Webhook -> Edit Fields -> upsert contato no GHL Instituto Gaia Soul (location WKIFW3zOVneKd04IZCgy) -> nota com TODAS as respostas -> oportunidade na pipeline 'Mata Quântica vendas' (x49LeIg4OcN40zBC5UES) / estágio Novo lead (57243825-...), status open. Depois a tela de sucesso oferece continuar no WhatsApp com o resumo. Testado ponta a ponta 22-09-26 (contato+opp+nota OK, testes apagados).",
+    "campos": "name(nome), phone(wpp), email, motivo(ocasião), data, diarias, servicos, pessoas, perfil, prazo(fechamento), origem, obs, source=reveillon-lp, tags, page_url, lead_type, company_website(honeypot)",
+    "qualificadores": "servicos (chef/ceia, passeios, transfer, tudo sob medida, só hospedagem), perfil do grupo (família/amigos/casal/empresa/retiro), prazo de fechamento (o quanto antes/próximas semanas/pesquisando) — vão consolidados na Observacao da nota.",
+    "tags_geradas": "mata-quantica, reveillon, website",
+    "widget_whatsapp": "o botão flutuante verde (WhatsApp) e TODOS os CTAs abrem o pop-up step-by-step (data-openform). Só a tela de sucesso, pós-envio, leva ao WhatsApp real. O endpoint PHP antigo (mataquantica-leads-api/api.php) foi trocado por este webhook n8n."
+  },
+  "design_base": "Clonado do design v2 (lps/mata_quantiqua_v2/index.html), que é o site no ar. Mesmo CSS/components (nav, hero, trust strip, chapter/quote, bleed, split, gallery cards, cta-band, services, impact, reserve, footer, modal lead multi-step, wa-float) + countdown novo no estilo v2.",
+  "blocos": ["nav (brand + links + Reservar)","hero fim de ano + escassez","trust strip","countdown para a virada (31/12 20h, auto, moss)","cap A virada + quote","bleed (deck-vista)","stats","por que aqui (4 cards: Salão Celestial na virada / exclusividade / baía-floresta-cachoeira / ceia de Réveillon)","split Salão Celestial (meia-noite)","cta-band escassez","services incluso x sob consulta (ceia de Réveillon)","impact Instituto Gaia Soul + Marcelo","reserve CTA (bg baia)","footer","modal lead 4 etapas (captura CRM) + tela sucesso com WhatsApp","wa-float"],
+  "palette": {"cream":"#F5EFE3","moss":"#2C3521","leaf":"#6FA84A (CTA)","gold":"#B4934E","ink":"#413728","paper":"#FBF8F1"},
+  "fonts": {"display":"Cormorant Garamond","body":"EB Garamond","labels":"Jost","source":"Google Fonts"},
+  "config": {"whatsapp":"5571999972427 (+55 71 99997-2427)","instagram":"mataquantica.eco","site":"mataquantica.com.br"},
+  "pendencias": ["APPROVE do Bruno antes de publicar","Opcional: pixel Meta / GA4 (há hook window.dataLayer 'lead_reveillon', sem ID configurado)","Opcional: locução do Marcelo (ElevenLabs) + vídeo Reels da campanha (storyboard já feito, aguardando aprovação de takes)"],
+  "render_command": "open '/Users/bruno/clientes_convidados/clientes/24_instituto_gaia_soul/website/lps/mata_quantiqua/reveillon/index.html'",
+  "edit_notes": "CONFIG (WhatsApp/Instagram/endpoint) no bloco <script>. Cores em :root. Countdown mira 31/12 20h automaticamente. Wizard: passos 1(ocasião) 2(pessoas) 3(data+diárias) 4(origem) 5(dados) -> POST no CRM -> tela de sucesso com WhatsApp."
+}

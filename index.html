@@ -12,6 +12,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Meta Pixel (Mata Quantica - Instituto Gaia Soul) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1101646255591862');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1101646255591862&ev=PageView&noscript=1"/></noscript>
+<!-- Fim Meta Pixel -->
+<!-- Google tag (gtag.js) Google Ads AW-11350534380 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-11350534380"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-11350534380');
+</script>
 <style>
 :root{
   --cream:#F5EFE3; --cream-2:#EFE7D7;
@@ -920,7 +940,7 @@ footer .fine{margin-top:26px;font-size:.72rem;letter-spacing:.1em;opacity:.4;fon
 </div>
 
 <script>
-/* GALERIA — LIGHTBOX */
+/* GALERIA - LIGHTBOX */
 (function(){
   const grid=document.getElementById('galeriaGrid');
   if(!grid)return;
@@ -1011,14 +1031,14 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
     const rows=[
       ['Nome',form.nome.value.trim()],
       ['WhatsApp',form.wpp.value.trim()],
-      ['E-mail',form.email.value.trim()||'—'],
+      ['E-mail',form.email.value.trim()||'nao informado'],
       ['Ocasião',form.motivo.value||'A combinar'],
       ['Data',dataBR(form.data.value)],
       ['Diárias',form.diarias.value||'A combinar'],
       ['Pessoas',form.pessoas.value||'A combinar'],
-      ['Como conheceu',form.origem.value||'—']
+      ['Como conheceu',form.origem.value||'nao informado']
     ];
-    reviewBox.innerHTML=rows.map(r=>'<div class="r"><b>'+r[0]+'</b><span>'+(r[1]||'—').replace(/[<>]/g,'')+'</span></div>').join('');
+    reviewBox.innerHTML=rows.map(r=>'<div class="r"><b>'+r[0]+'</b><span>'+(r[1]||'nao informado').replace(/[<>]/g,'')+'</span></div>').join('');
   };
   const showStep=(i)=>{
     cur=Math.max(0,Math.min(stepsEls.length-1,i));
@@ -1072,9 +1092,9 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
         sent=r2&&r2.ok;
       }catch(e2){}
     }
-    form.style.display='none';
-    if(doneEl)doneEl.classList.add('on');
     try{sessionStorage.setItem(KEY,'1')}catch(_){}
+    // redireciona para a pagina de obrigado (dispara Lead/conversao la, por URL)
+    window.location.href='obrigado/';
   }
 })();
 </script>
