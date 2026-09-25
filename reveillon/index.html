@@ -1029,6 +1029,11 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
     if(el.classList.contains('auto')){const hid=el.querySelector('input[type=hidden]');return !(hid&&!hid.value)}
     const fields=el.querySelectorAll('input[required],textarea[required]');
     for(const f of fields){if(!f.value.trim()){if(f.reportValidity)f.reportValidity();else f.focus();return false}}
+    // 25-09-26: WhatsApp com DDD e e-mail válido (lead com contato quebrado não entra no CRM)
+    const tel=el.querySelector('input[type=tel]');
+    if(tel&&tel.value.trim()&&tel.value.replace(/\D/g,'').replace(/^0+/,'').length<10){tel.setCustomValidity('Digite o WhatsApp com DDD, ex.: (71) 99999-9999');tel.reportValidity();tel.setCustomValidity('');return false}
+    const em=el.querySelector('input[type=email]');
+    if(em&&em.value.trim()&&!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(em.value.trim())){em.setCustomValidity('Confira o e-mail, ex.: nome@gmail.com');em.reportValidity();em.setCustomValidity('');return false}
     return true;
   };
   const advance=()=>{ if(!validStep(stepsEls[cur]))return; if(cur<stepsEls.length-1)showStep(cur+1); else sendLead(); };
@@ -1047,6 +1052,12 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
   modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
   addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
   const LEAD_API='https://mediagrowth-n8n.63kuy3.easypanel.host/webhook/mataquantica-reveillon';
+  // Rastreamento (25-09-26): guarda UTMs/ids de clique da URL de entrada (sobrevive à navegação) e manda junto com o lead
+  const TRK=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+  const QS=new URLSearchParams(location.search);
+  TRK.forEach(k=>{const v=QS.get(k);if(v){try{sessionStorage.setItem('mq_'+k,v)}catch(e){}}});
+  const trk=k=>QS.get(k)||(()=>{try{return sessionStorage.getItem('mq_'+k)||''}catch(e){return ''}})();
+  const ck=n=>{const m=document.cookie.match('(?:^|; )'+n+'=([^;]*)');return m?decodeURIComponent(m[1]):''};
   const doneEl=document.getElementById('lfDone');
   let sending=false;
   async function sendLead(){
@@ -1064,8 +1075,12 @@ document.querySelectorAll('.reveal,.bleed').forEach(el=>io.observe(el));
     if(form.obs.value.trim())extras.push(form.obs.value.trim());
     const obs=extras.join(' | ');
     sending=true;nextBtn.disabled=true;nextBtn.textContent='Enviando…';
+    const eid='rv-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,10);
+    try{sessionStorage.setItem('mq_eid',eid)}catch(e){}
     const payload={name:nome,phone:wpp,email,motivo,data:dataBR(data),diarias,servicos,pessoas,perfil,prazo,origem,obs,
-      source:'reveillon-lp',tags:['mata-quantica','reveillon','website'],page_url:location.href,lead_type:'form',company_website:''};
+      source:'reveillon-lp',page_url:location.href,lead_type:'form',company_website:'',event_id:eid,
+      fbp:ck('_fbp'),fbc:ck('_fbc')};
+    TRK.forEach(k=>{const v=trk(k);if(v)payload[k]=v});
     let sent=false;
     try{const r=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});sent=r&&r.ok}catch(err){sent=false}
     if(!sent){try{const b=new URLSearchParams(payload).toString();const r2=await fetch(LEAD_API,{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:b});sent=r2&&r2.ok}catch(e2){}}
