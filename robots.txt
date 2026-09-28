@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /obrigado/
+Disallow: /reveillon/obrigado/
+Disallow: /*index-staging.html$
+Disallow: /*/_shots/
+
+Sitemap: https://mataquantica.com.br/sitemap.xml
