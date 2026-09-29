@@ -611,8 +611,11 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         <label class="fl">Seu melhor e-mail</label>
         <input type="email" name="email" placeholder="voce@email.com" autocomplete="email">
         <label class="fl">Seu WhatsApp (com DDD)</label>
-        <input type="tel" name="whatsapp" placeholder="(71) 99999-9999" autocomplete="tel" inputmode="tel" required>
-        <div id="waErr" style="display:none;color:#F2764C;font-size:13px;margin:-6px 0 10px">Confira seu WhatsApp: use o DDD, por exemplo (71) 99999-9999.</div>
+        <div style="position:relative">
+          <span aria-hidden="true" style="position:absolute;left:16px;top:50%;transform:translateY(-50%);color:rgba(246,241,231,.7);font-family:'EB Garamond',serif;font-size:1.02rem;pointer-events:none">+55</span>
+          <input type="tel" name="whatsapp" id="waInput" placeholder="(71) 99999-9999" autocomplete="tel-national" inputmode="numeric" required style="padding-left:54px">
+        </div>
+        <div id="waErr" style="display:none;color:#F2764C;font-size:13px;margin:8px 0 0">Digite o celular com DDD, por exemplo (71) 99999-9999.</div>
       </div>
 
       <div class="step" data-step="2">
@@ -686,13 +689,24 @@ function updateStep(){
   document.getElementById('stepNext').style.display=curStep<totSteps?'block':'none';
   document.getElementById('stepSubmit').style.display=curStep===totSteps?'flex':'none';
 }
+/* WhatsApp: máscara brasileira (só números) + validação de DDD e do 9 do celular */
+const DDD_OK=[11,12,13,14,15,16,17,18,19,21,22,24,27,28,31,32,33,34,35,37,38,41,42,43,44,45,46,47,48,49,51,53,54,55,61,62,63,64,65,66,67,68,69,71,73,74,75,77,79,81,82,83,84,85,86,87,88,89,91,92,93,94,95,96,97,98,99];
+function waDigitos(v){let d=(v||'').replace(/\D/g,'');if(d.length>11&&d.startsWith('55'))d=d.slice(2);d=d.replace(/^0+/,'');return d.slice(0,11);}
+function waMascara(d){if(!d)return '';if(d.length<=2)return '('+d;const dd=d.slice(0,2),r=d.slice(2);
+  if(d.length<=6)return '('+dd+') '+r; if(d.length<=10)return '('+dd+') '+r.slice(0,4)+'-'+r.slice(4); return '('+dd+') '+r.slice(0,5)+'-'+r.slice(5);}
+function waValido(d){if(!(d.length===10||d.length===11))return false;if(!DDD_OK.includes(+d.slice(0,2)))return false;
+  if(d.length===11&&d[2]!=='9')return false;return true;}
+(function(){const i=document.getElementById('waInput');if(!i)return;
+  const fmt=()=>{i.value=waMascara(waDigitos(i.value));const e=document.getElementById('waErr');if(e&&waValido(waDigitos(i.value)))e.style.display='none';};
+  i.addEventListener('input',fmt);i.addEventListener('paste',()=>setTimeout(fmt,0));
+  i.addEventListener('keypress',ev=>{if(ev.key.length===1&&!/[0-9]/.test(ev.key))ev.preventDefault();});})();
 function validStep(){
   const f=document.getElementById('mareForm');
   if(curStep===1){
     if(!f.nome.value.trim()){f.nome.focus();return false;}
     if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(f.email.value.trim())){f.email.focus();return false;}
-    const wd=f.whatsapp.value.replace(/\D/g,'').replace(/^0+/,''), wErr=document.getElementById('waErr');
-    const wOk=/^\+/.test(f.whatsapp.value.trim())?(wd.length>=8&&wd.length<=15):(wd.length>=10&&wd.length<=15);
+    const wd=f.whatsapp.value.replace(/\D/g,''), wErr=document.getElementById('waErr');
+    const wOk=waValido(wd);
     if(wErr)wErr.style.display=wOk?'none':'block';
     if(!wOk){f.whatsapp.focus();return false;}
   }
