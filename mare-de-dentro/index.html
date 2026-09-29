@@ -611,7 +611,8 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         <label class="fl">Seu melhor e-mail</label>
         <input type="email" name="email" placeholder="voce@email.com" autocomplete="email">
         <label class="fl">Seu WhatsApp (com DDD)</label>
-        <input type="tel" name="whatsapp" placeholder="(71) 99999-9999" autocomplete="tel" inputmode="tel">
+        <input type="tel" name="whatsapp" placeholder="(71) 99999-9999" autocomplete="tel" inputmode="tel" required>
+        <div id="waErr" style="display:none;color:#F2764C;font-size:13px;margin:-6px 0 10px">Confira seu WhatsApp: use o DDD, por exemplo (71) 99999-9999.</div>
       </div>
 
       <div class="step" data-step="2">
@@ -690,8 +691,10 @@ function validStep(){
   if(curStep===1){
     if(!f.nome.value.trim()){f.nome.focus();return false;}
     if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(f.email.value.trim())){f.email.focus();return false;}
-    const wd=f.whatsapp.value.replace(/\D/g,'');
-    if(wd.length<10||wd.length>15){f.whatsapp.focus();return false;}
+    const wd=f.whatsapp.value.replace(/\D/g,'').replace(/^0+/,''), wErr=document.getElementById('waErr');
+    const wOk=/^\+/.test(f.whatsapp.value.trim())?(wd.length>=8&&wd.length<=15):(wd.length>=10&&wd.length<=15);
+    if(wErr)wErr.style.display=wOk?'none':'block';
+    if(!wOk){f.whatsapp.focus();return false;}
   }
   if(curStep===2 && !f.investimento.value){f.investimento.focus();return false;}
   if(curStep===3 && !f.interesse.value){f.interesse.focus();return false;}
