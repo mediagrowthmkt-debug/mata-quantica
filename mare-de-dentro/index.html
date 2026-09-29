@@ -609,7 +609,9 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         <label class="fl">Seu nome</label>
         <input type="text" name="nome" placeholder="Como podemos te chamar">
         <label class="fl">Seu melhor e-mail</label>
-        <input type="email" name="email" placeholder="voce@email.com">
+        <input type="email" name="email" placeholder="voce@email.com" autocomplete="email">
+        <label class="fl">Seu WhatsApp (com DDD)</label>
+        <input type="tel" name="whatsapp" placeholder="(71) 99999-9999" autocomplete="tel" inputmode="tel">
       </div>
 
       <div class="step" data-step="2">
@@ -687,7 +689,9 @@ function validStep(){
   const f=document.getElementById('mareForm');
   if(curStep===1){
     if(!f.nome.value.trim()){f.nome.focus();return false;}
-    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(f.email.value)){f.email.focus();return false;}
+    if(!/^[^@\s]+@[^@\s]+\.[a-z]{2,}$/i.test(f.email.value.trim())){f.email.focus();return false;}
+    const wd=f.whatsapp.value.replace(/\D/g,'');
+    if(wd.length<10||wd.length>15){f.whatsapp.focus();return false;}
   }
   if(curStep===2 && !f.investimento.value){f.investimento.focus();return false;}
   if(curStep===3 && !f.interesse.value){f.interesse.focus();return false;}
@@ -700,16 +704,23 @@ function prevStep(){if(curStep>1){curStep--;updateStep();}}
 document.querySelectorAll('a[href="#inscricao"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();openModal();}));
 // form -> CRM (GoHighLevel, pipeline Imersão Mahamudra) + WhatsApp opcional
 const LEADS_API="https://mediagrowth.com.br/mare-leads-api/api.php";
+// origem do lead (UTM/gclid/fbclid + página de entrada), guardada na 1ª página da visita
+(function(){try{const q=new URLSearchParams(location.search),o=JSON.parse(sessionStorage.getItem('mdd_origem')||'{}');
+  ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','gclid','fbclid'].forEach(k=>{const v=q.get(k);if(v)o[k]=v;});
+  if(!o.page_url)o.page_url=location.href; if(!o.referrer&&document.referrer)o.referrer=document.referrer;
+  sessionStorage.setItem('mdd_origem',JSON.stringify(o));}catch(_){}})();
+function origemLead(){try{return JSON.parse(sessionStorage.getItem('mdd_origem')||'{}')}catch(_){return {}}}
 async function enviar(e){
   e.preventDefault();
   if(!validStep())return false;
   const f=e.target, d=new FormData(f);
   const payload={
-    nome:d.get('nome')||'', email:d.get('email')||'',
+    nome:(d.get('nome')||'').trim(), email:(d.get('email')||'').trim(), whatsapp:(d.get('whatsapp')||'').trim(),
     investimento:d.get('investimento')||'', interesse:d.get('interesse')||'',
     companhia:d.get('companhia')||'', obs:d.get('obs')||'',
     company_website:d.get('company_website')||''
   };
+  Object.assign(payload,origemLead());
   const btn=document.getElementById('stepSubmit');
   const orig=btn.textContent; btn.textContent='Enviando...'; btn.disabled=true;
   try{
@@ -721,6 +732,7 @@ async function enviar(e){
     const msg="*Inscricao Mare de Dentro*%0A%0A"+
       "Nome: "+encodeURIComponent(payload.nome)+"%0A"+
       "E-mail: "+encodeURIComponent(payload.email)+"%0A"+
+      "WhatsApp: "+encodeURIComponent(payload.whatsapp)+"%0A"+
       "Investimento: "+encodeURIComponent(payload.investimento)+"%0A"+
       "Interesse: "+encodeURIComponent(payload.interesse)+"%0A"+
       "Companhia: "+encodeURIComponent(payload.companhia)+"%0A"+
