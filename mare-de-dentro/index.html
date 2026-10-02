@@ -420,7 +420,31 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
 .closing .next{margin-top:30px;font-size:1.02rem;opacity:.86}
 .closing .next a{display:inline-block;margin-top:8px;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);border-bottom:1px solid rgba(205,174,115,.45);padding-bottom:4px}
 .closing .next a:hover{color:#F6F1E7;border-color:#F6F1E7}
+.closing .next .next-btn{display:inline-block;margin-top:8px;background:none;border:none;border-bottom:1px solid rgba(205,174,115,.45);padding:0 0 4px;cursor:pointer;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft)}
+.closing .next .next-btn:hover{color:#F6F1E7;border-color:#F6F1E7}
+.guide button.glink{background:none;border:none;border-bottom:1px solid rgba(16,59,68,.35);cursor:pointer}
 .g6.gshort{min-height:300px}
+
+.day li b{font-family:'Jost',sans-serif;font-weight:500;font-size:.74rem;letter-spacing:.08em;color:var(--gold-soft);min-width:104px;flex-shrink:0}
+.day li{padding:11px 0}
+@media(max-width:560px){.day li b{min-width:84px;font-size:.68rem}.day li{gap:10px;font-size:1.05rem}}
+.instituto{background:var(--sand)}
+.instituto .head{text-align:center;margin-bottom:clamp(36px,5vw,56px)}
+.instituto .kicker{display:block;margin-bottom:18px}
+.instituto h2{font-size:clamp(2.2rem,5vw,3.8rem);color:var(--moss);line-height:1.04}
+.instituto h2 .em{font-style:italic;color:var(--clay)}
+.instituto .lead{max-width:700px;margin:18px auto 0;color:var(--ink-soft);font-size:1.12rem}
+.instituto .lead b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(1.35rem,2.6vw,1.8rem);color:var(--moss);line-height:1.25;display:block}
+.proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(14px,2vw,22px)}
+.proj{background:var(--sand-2);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.proj-pic{aspect-ratio:4/3;background-size:cover;background-position:center}
+.proj-body{padding:22px 22px 26px}
+.proj-body .k{font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.proj-body h4{font-size:1.45rem;color:var(--moss);line-height:1.1;margin-top:8px}
+.proj-body p{font-size:.98rem;color:var(--ink-soft);margin-top:10px;line-height:1.55}
+.inst-close{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.8rem);color:var(--moss);margin-top:clamp(36px,5vw,52px)}
+@media(max-width:1000px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Resort","LodgingBusiness","LocalBusiness"],"@id":"https://mataquantica.com.br/#resort","name":"Mata Quântica · Private Eco Resort","alternateName":"Mata Quântica","url":"https://mataquantica.com.br/"},{"@type":"Event","@id":"https://mataquantica.com.br/mare-de-dentro/#event","name":"Maré de Dentro · Imersão na Mata Quântica","description":"Imersão de quatro dias conduzida por Cesar Curti e Marcelo Telles na Mata Quântica, em Maragogipe, Bahia: treinos, yoga, oceanoterapia, experiências na natureza, convivência e descanso.","startDate":"2026-12-04","endDate":"2026-12-07","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","image":["https://mataquantica.com.br/mare-de-dentro/assets/hero.jpg"],"url":"https://mataquantica.com.br/mare-de-dentro/","location":{"@type":"Place","name":"Mata Quântica · Private Eco Resort","address":{"@type":"PostalAddress","addressLocality":"Maragogipe","addressRegion":"BA","addressCountry":"BR"}},"performer":[{"@type":"Person","name":"Cesar Curti"},{"@type":"Person","name":"Marcelo Telles"}],"organizer":{"@type":"Organization","name":"Mahamudra Club"},"offers":{"@type":"Offer","price":"2970","priceCurrency":"BRL","availability":"https://schema.org/LimitedAvailability","url":"https://mataquantica.com.br/mare-de-dentro/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mataquantica.com.br/"},{"@type":"ListItem","position":2,"name":"Maré de Dentro","item":"https://mataquantica.com.br/mare-de-dentro/"}]},{"@type":"Service","@id":"https://mataquantica.com.br/mare-de-dentro/#service","name":"Imersão Maré de Dentro","serviceType":"Imersão na natureza","url":"https://mataquantica.com.br/mare-de-dentro/","provider":{"@type":"Organization","name":"Mahamudra Club"},"areaServed":{"@type":"Place","name":"Bahia, Brasil"}}]}</script>
 </head>
@@ -537,10 +561,10 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         <p>Sua participação conecta movimento e atenção ao corpo, levando o conhecimento para a experiência prática.</p>
       </article>
       <article class="host" id="host-marcelo">
-        <img class="host-photo" src="assets/marcelo-telles.webp" alt="Marcelo Telles, mestre em Oceanografia" width="360" height="360" loading="lazy">
-        <span class="role">Mestre em Oceanografia</span>
+        <img class="host-photo" src="assets/marcelo-telles.webp" alt="Marcelo Telles, oceanógrafo e fundador do Instituto Gaia Soul" width="360" height="360" loading="lazy">
+        <span class="role">Oceanógrafo e fundador do Instituto Gaia Soul</span>
         <h3>Marcelo Telles</h3>
-        <p>Marcelo atua com oceanoterapia e com a relação entre o ambiente marinho e o bem-estar.</p>
+        <p>Velejador, mergulhador e praticante de inúmeros esportes náuticos, Marcelo atua com oceanoterapia e com a relação entre o ambiente marinho e o bem-estar.</p>
         <p>Sua participação aproxima conhecimento sobre o oceano e vivências na natureza, convidando você a perceber o ambiente e a própria experiência com mais atenção.</p>
       </article>
     </div>
@@ -567,14 +591,14 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
 
     <div class="xp-grid">
       <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--clay)">Movimento</span><div class="ph" style="background-image:url('assets/academia.webp')"></div></div><div class="body"><h4>Treinos e movimento</h4><p>Dedique atenção ao corpo, explore movimentos e experimente a prática em um ambiente diferente da sua rotina.</p></div></div>
-      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--clay)">Movimento</span><div class="ph" style="background-image:url('assets/meditacao.webp')"></div></div><div class="body"><h4>Yoga e recuperação</h4><p>Momentos para respirar, trabalhar a mobilidade e cuidar do corpo entre as atividades.</p></div></div>
-      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--leaf)">Natureza</span><div class="ph" style="background-image:url('assets/banho-floresta.webp')"></div></div><div class="body"><h4>Banho de mata</h4><p>Caminhe, observe e perceba a floresta com tempo para prestar atenção aos sons, às formas e às sensações do caminho.</p></div></div>
+      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--clay)">Movimento</span><div class="ph" style="background-image:url('assets/yoga.webp')"></div></div><div class="body"><h4>Yoga e recuperação</h4><p>Momentos para respirar, trabalhar a mobilidade e cuidar do corpo entre as atividades.</p></div></div>
+      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--leaf)">Natureza</span><div class="ph" style="background-image:url('assets/banho-floresta.webp')"></div></div><div class="body"><h4>Banho de floresta</h4><p>Caminhe, observe e perceba a floresta com tempo para prestar atenção aos sons, às formas e às sensações do caminho.</p></div></div>
       <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--tide)">Oceano</span><div class="ph" style="background-image:url('assets/oceano.webp')"></div></div><div class="body"><h4>Oceanoterapia</h4><p>Vivências conduzidas por Marcelo Telles para explorar sua relação com o ambiente marinho.</p></div></div>
       <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--tide)">Oceano</span><div class="ph" style="background-image:url('assets/esportes.webp')"></div></div><div class="body"><h4>Paddle, caiaque e bike aquática</h4><p>Conheça o entorno pela água e compartilhe experiências que combinam movimento e natureza.</p></div></div>
       <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--cta)">Convivência</span><div class="ph" style="background-image:url('assets/roda.webp')"></div></div><div class="body"><h4>Conversas e integração</h4><p>Encontros para aprofundar os temas da imersão, ouvir outras perspectivas e compartilhar a sua.</p></div></div>
-      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--cta)">Convivência</span><div class="ph" style="background-image:url('assets/gastronomia.webp')"></div></div><div class="body"><h4>Fogueira e convivência</h4><p>Refeições, conversas e momentos de encontro para aproveitar também o que acontece entre as práticas.</p></div></div>
+      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--cta)">Convivência</span><div class="ph" style="background-image:url('assets/meditacao.webp')"></div></div><div class="body"><h4>Fogueira e convivência</h4><p>Refeições, conversas e momentos de encontro para aproveitar também o que acontece entre as práticas.</p></div></div>
       <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--gold)">Descanso</span><div class="ph" style="background-image:url('assets/aquaterapia.webp')"></div></div><div class="body"><h4>Descanso e contemplação</h4><p>Tempo reservado para diminuir o ritmo e aproveitar o lugar sem precisar preencher cada minuto.</p></div></div>
-      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--tide)">Oceano</span><div class="ph" style="background-image:url('assets/saveiro.webp')"></div></div><div class="body"><h4>A travessia de barco</h4><p>A chegada de barco marca o início da experiência. A paisagem se abre, a floresta se aproxima e os próximos dias começam no ritmo da água.</p></div></div>
+      <div class="xp"><div class="pic"><span class="tag" style="--dc:var(--tide)">Oceano</span><div class="ph" style="background-image:url('assets/lancha.webp')"></div></div><div class="body"><h4>A travessia de lancha</h4><p>A chegada de lancha marca o início da experiência. A paisagem se abre, a floresta se aproxima e os próximos dias começam no ritmo da água.</p></div></div>
     </div>
   </div>
 </section>
@@ -600,7 +624,7 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
       <div class="gi g6 gshort"><div class="ph" style="background-image:url('assets/quadra.webp')"></div><span>Quadra de areia</span></div>
     </div>
     <div class="space-cards">
-      <div class="space-card"><h4>Casa Mar<small>horizonte e acolhimento</small></h4><p>Cercada pela floresta e com vista para a água, a Casa Mar reúne varandas e ambientes acolhedores para descansar e compartilhar os momentos da imersão.</p></div>
+      <div class="space-card"><h4>Casa Mar<small>horizonte e acolhimento</small></h4><p>Cercada pela floresta e de frente para o Rio Paraguaçu e a baía do Iguape, a Casa Mar reúne varandas e ambientes acolhedores para descansar e compartilhar os momentos da imersão.</p></div>
       <div class="space-card"><h4>Casa Mata<small>proximidade com a floresta</small></h4><p>Integrada à Mata Atlântica, a Casa Mata oferece espaços de hospedagem e encontro em contato com o verde.</p></div>
       <div class="space-card"><h4>Estrutura<small>movimento, descanso e encontro</small></h4><p>O local reúne piscina de borda infinita, academia, quadra de areia e ambientes de convivência. O Salão Celestial integra encontros e práticas à paisagem, com cobertura retrátil que abre o espaço para o céu.</p></div>
     </div>
@@ -623,7 +647,7 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
       <div class="aleft">
         <span class="kicker">A programação</span>
         <h2 class="display sm">Quatro dias com espaço para chegar, viver e levar a experiência <span class="em">com você</span>.</h2>
-        <p class="sub">A programação alterna atividades, recuperação, convivência e tempo livre. Toque nos dias e veja o ritmo de cada um.</p>
+        <p class="sub">A programação alterna atividades, recuperação, convivência e tempo livre. Toque nos dias e veja os horários de cada um.</p>
       </div>
 
       <div class="aright">
@@ -643,33 +667,46 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
             <div class="when">Sexta-feira · 04 de dezembro</div>
             <h3 class="display">Chegar e desacelerar.</h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Travessia de barco</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Acolhimento na propriedade</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Jantar de abertura</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Encontro ao redor da fogueira</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>14h30</b><span>Saída de Salvador</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>15h30</b><span>Chegada à Mata Quântica</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>16h</b><span>Recepção e alocação</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>17h às 18h30</b><span>Tempo livre</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>19h às 20h30</b><span>Jantar</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>20h30</b><span>Roda de fogueira</span></li>
             </ul>
             <a class="dcta" href="#inscricao"><span>Quero viver essa experiência</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
 
           <div class="day" id="day-sab">
             <div class="when">Sábado · 05 de dezembro</div>
-            <h3 class="display">Corpo e oceano.</h3>
+            <h3 class="display">Movimento e floresta.</h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Movimento e yoga ao amanhecer</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Oceanoterapia</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Tempo de mar</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Jantar compartilhado</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>7h às 8h</b><span>Yoga e fitness com Cesar Curti</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>8h às 9h</b><span>Café da manhã</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>9h às 11h</b><span>Tempo livre</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>11h às 12h</b><span>Atividade com Cesar Curti</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>12h às 13h</b><span>Almoço</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>14h às 15h30</b><span>Tempo livre</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>16h às 18h</b><span>Banho de floresta com Marcelo Telles</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>19h às 20h30</b><span>Jantar</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>20h30</b><span>Roda de fogueira</span></li>
             </ul>
             <a class="dcta" href="#inscricao"><span>Quero viver essa experiência</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
 
           <div class="day" id="day-dom">
             <div class="when">Domingo · 06 de dezembro</div>
-            <h3 class="display">Mata e presença.</h3>
+            <h3 class="display">Oceano e presença.</h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Banho de mata</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Conversas e práticas de presença</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Música, fogueira e convivência</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>7h às 8h</b><span>Yoga e fitness com Cesar Curti</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>8h às 9h</b><span>Café da manhã</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>9h às 11h</b><span>Tempo livre</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>11h às 12h</b><span>Oceanoterapia com Marcelo Telles</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>12h às 13h</b><span>Almoço</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>14h às 15h30</b><span>Tempo livre</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>16h às 18h</b><span>Banho de floresta com Marcelo Telles</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>19h às 20h30</b><span>Jantar</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>20h30</b><span>Roda de fogueira</span></li>
             </ul>
             <a class="dcta" href="#inscricao"><span>Quero viver essa experiência</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
@@ -678,9 +715,9 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
             <div class="when">Segunda-feira · 07 de dezembro</div>
             <h3 class="display">Encerrar e olhar para a continuidade.</h3>
             <ul>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Prática de fechamento</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Café de despedida</li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg>Travessia de retorno</li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>7h</b><span>Café da manhã</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>7h30</b><span>Roda de finalização</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><b>8h30</b><span>Retorno de lancha para Salvador</span></li>
             </ul>
             <a class="dcta" href="#inscricao"><span>Quero viver essa experiência</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M7 17L17 7M9 7h8v8"/></svg></a>
           </div>
@@ -729,7 +766,7 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Conteúdos e vivências conduzidos por Cesar Curti e Marcelo Telles.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Treinos e práticas de movimento.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Yoga e recuperação.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Banho de mata.</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Banho de floresta.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Oceanoterapia.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Atividades com paddle, caiaque e bike aquática.</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 13l4 4L19 7"/></svg><span>Equipamentos esportivos.</span></li>
@@ -775,12 +812,7 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
     <p class="offer-txt">Com hospedagem, alimentação, programação, traslado de barco, equipamentos esportivos e material de apoio incluídos.</p>
     <p class="offer-txt" style="font-style:italic">As vagas são limitadas para preservar o espaço, a convivência e a qualidade da experiência.</p>
     <div style="margin-top:36px"><button type="button" class="btn cta-pulse" onclick="openModal()">Quero participar desta edição</button></div>
-    <p class="wa-ask">Precisa esclarecer alguma coisa antes de decidir?</p>
-    <a class="wa-btn" href="https://wa.me/5571999972427?text=Ol%C3%A1%21%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20Mar%C3%A9%20de%20Dentro%20antes%20de%20decidir." target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2Z"/></svg>Falar com a organização no WhatsApp</a>
-    <div class="contact" style="align-items:center;margin-top:34px">
-      <a href="https://wa.me/5571999972427"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-8.5 15.2L2 22l4.9-1.5A10 10 0 1012 2Z"/></svg> (71) 99997-2427</a>
-      <a href="mailto:contato@institutogaiasoul.ong.br"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg> contato@institutogaiasoul.ong.br</a>
-    </div>
+    <p class="wa-ask">Precisa esclarecer alguma coisa antes de decidir? Deixe seus dados no formulário e nossa equipe entra em contato.</p>
   </div>
 </section>
 
@@ -793,7 +825,7 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         <h3>Organize sua chegada com tranquilidade.</h3>
         <p>A Mata Quântica fica em Maragogipe, na Bahia. O trecho de barco está incluído na sua participação.</p>
         <p>Antes de reservar sua viagem, consulte a organização para confirmar o ponto de embarque, os horários e as orientações de deslocamento.</p>
-        <a class="glink" href="https://wa.me/5571999972427?text=Ol%C3%A1%21%20Quero%20receber%20as%20orienta%C3%A7%C3%B5es%20para%20chegar%20%C3%A0%20Mar%C3%A9%20de%20Dentro." target="_blank" rel="noopener">Receber orientações para chegar</a>
+        <button type="button" class="glink" onclick="openModal()">Receber orientações para chegar</button>
       </div>
       <div class="gcol">
         <span class="kicker">Dúvidas</span>
@@ -811,9 +843,28 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
           <li>Condições de pagamento.</li>
           <li>Cancelamento e transferência da inscrição.</li>
         </ul>
-        <a class="glink" href="https://wa.me/5571999972427?text=Ol%C3%A1%21%20Quero%20tirar%20minhas%20d%C3%BAvidas%20sobre%20a%20Mar%C3%A9%20de%20Dentro." target="_blank" rel="noopener">Quero tirar minhas dúvidas</a>
+        <button type="button" class="glink" onclick="openModal()">Quero tirar minhas dúvidas</button>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- INSTITUTO GAIA SOUL -->
+<section id="instituto" class="section instituto reveal">
+  <div class="wrap">
+    <div class="head">
+      <span class="kicker">Instituto Gaia Soul</span>
+      <h2 class="display">Sua imersão também <span class="em">transforma vidas</span>.</h2>
+      <p class="lead"><b>30% dos recursos da Maré de Dentro são destinados aos projetos do Instituto Gaia Soul.</b></p>
+      <p class="lead">Fundado em 2019 por Marcelo Telles, o Instituto promove a Cultura Oceânica e aproxima pessoas do oceano, unindo educação, ciência, cultura, tecnologia e bem-estar. A atuação nasce na Bahia e caminha ao lado das famílias de pescadores e marisqueiras e das comunidades quilombolas da Baía do Iguape.</p>
+    </div>
+    <div class="proj-grid">
+      <article class="proj"><div class="proj-pic" style="background-image:url('assets/instituto-pescadores.webp')"></div><div class="proj-body"><span class="k">Ações sociais · Baía do Iguape</span><h4>803 famílias de pescadores e marisqueiras</h4><p>Apoio à Associação de Pescadores e Marisqueiras de Cachoeira e presença nas datas que importam para as comunidades tradicionais do território.</p></div></article>
+      <article class="proj"><div class="proj-pic" style="background-image:url('assets/instituto-real-sao-francisco.webp')"></div><div class="proj-body"><span class="k">Esporte · Cachoeira (BA)</span><h4>65 jovens, um time e um vice-campeonato</h4><p>Com treinador, uniformes, bolas e lanche garantidos pelo Instituto, o Real São Francisco reúne jovens de 12 a 17 anos. Em 2025, chegou ao vice-campeonato.</p></div></article>
+      <article class="proj"><div class="proj-pic" style="background-image:url('assets/instituto-jiujitsu.webp')"></div><div class="proj-body"><span class="k">Esporte · Baía do Iguape e Salvador</span><h4>Campeãs baianas de jiu-jitsu</h4><p>Duas irmãs gêmeas encontraram no esporte um caminho de disciplina, pertencimento e conquista, e se tornaram campeãs baianas de jiu-jitsu.</p></div></article>
+      <article class="proj"><div class="proj-pic" style="background-image:url('assets/instituto-imersao-azul.webp')"></div><div class="proj-body"><span class="k">Educação · Imersão Azul</span><h4>Cultura Oceânica na sala de aula</h4><p>11 livros didáticos autorais, realidade virtual e muita curiosidade para levar o oceano às escolas.</p></div></article>
+    </div>
+    <p class="inst-close">Ao viver esses quatro dias, você cuida de si e ajuda a cuidar do oceano e de quem vive dele.</p>
   </div>
 </section>
 
@@ -828,7 +879,7 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
     <p class="stress">Saia do automático. Abra espaço para voltar a se ouvir.</p>
     <div class="sig">Maré de Dentro<br>Mata Quântica · Bahia · 04 a 07 de dezembro de 2026</div>
     <button type="button" class="btn cta-pulse" onclick="openModal()">Quero participar desta edição</button>
-    <p class="next">Não consegue estar nesta turma?<br><a href="https://fila.sympla.com.br/list/30277" target="_blank" rel="noopener">Quero receber informações das próximas edições</a></p>
+    <p class="next">Não consegue estar nesta turma?<br><button type="button" class="next-btn" onclick="openModal('proximas')">Quero receber informações das próximas edições</button></p>
   </div>
 </section>
 
@@ -883,6 +934,7 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
           <option>Quero participar desta edição</option>
           <option>Quero receber os detalhes antes de decidir</option>
           <option>Estou explorando possibilidades</option>
+          <option>Não consigo nesta turma, quero as próximas edições</option>
         </select>
       </div>
 
@@ -896,7 +948,6 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         </select>
         <label class="fl">Existe algo que deveríamos saber?</label>
         <textarea name="obs" placeholder="Opcional"></textarea>
-        <label class="check"><input type="checkbox" name="wa" checked> <span>Abrir WhatsApp após salvar minha inscrição</span></label>
       </div>
 
       <div class="step-nav">
@@ -904,8 +955,14 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         <button type="button" class="btn cta-pulse" id="stepNext" onclick="nextStep()">Continuar</button>
         <button type="submit" class="btn cta-pulse" id="stepSubmit" style="display:none">Entrar na lista</button>
       </div>
-      <p class="fine">Sem compromisso. Salvamos suas respostas com segurança e, se você quiser, abrimos o WhatsApp de atendimento depois.</p>
+      <p class="fine">Sem compromisso. Salvamos suas respostas com segurança e nossa equipe entra em contato com você.</p>
     </form>
+    <!-- confirmação de quem quer as PRÓXIMAS edições: entra na lista de interesse do Sympla (Sarah 02-10-26) -->
+    <div id="proxOk" style="display:none;text-align:center;margin-top:24px">
+      <p style="font-size:1.05rem;line-height:1.6;margin:0 0 18px">Recebemos seu interesse. Você vai ser avisado(a) primeiro quando abrirmos a próxima turma da Maré de Dentro.</p>
+      <p style="font-size:.95rem;line-height:1.6;opacity:.85;margin:0 0 22px">Pra garantir sua prioridade, entre também na lista de interesse oficial:</p>
+      <a class="btn" href="https://fila.sympla.com.br/list/30277" target="_blank" rel="noopener" style="display:inline-flex">Entrar na lista das próximas edições</a>
+    </div>
   </div>
 </div>
 
@@ -923,7 +980,11 @@ document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
   document.getElementById('day-'+t.dataset.day).classList.add('active');
 }));
 // modal / pop-up
-function openModal(){document.getElementById('modalOv').classList.add('open');document.body.style.overflow='hidden';curStep=1;updateStep();}
+function openModal(origem){document.getElementById('modalOv').classList.add('open');document.body.style.overflow='hidden';curStep=1;updateStep();
+  document.getElementById('mareForm').style.display='';document.getElementById('proxOk').style.display='none';
+  const sel=document.querySelector('#mareForm select[name="interesse"]');
+  const PROX='Não consigo nesta turma, quero as próximas edições';
+  if(sel){if(origem==='proximas')sel.value=PROX;else if(sel.value===PROX)sel.value='';}}
 function closeModal(){document.getElementById('modalOv').classList.remove('open');document.body.style.overflow='';}
 addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
@@ -988,24 +1049,29 @@ async function enviar(e){
   Object.assign(payload,origemLead());
   const btn=document.getElementById('stepSubmit');
   const orig=btn.textContent; btn.textContent='Enviando...'; btn.disabled=true;
-  try{
-    await fetch(LEADS_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
-  }catch(err){ /* captura tentada; nao trava o usuario */ }
-  try{gtag('event','form_submit',{page_path:location.pathname,lead_source:'mare-de-dentro',transport_type:'beacon'})}catch(_){}
+  /* sem WhatsApp de reserva: só mostra sucesso se a API confirmou, senão pede pra tentar de novo (lead nunca some calado) */
+  let salvo=false;
+  for(let t=0;t<2&&!salvo;t++){
+    try{
+      const r=await fetch(LEADS_API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      const j=await r.json().catch(()=>({}));
+      salvo=r.ok&&j.ok===true;
+    }catch(err){}
+  }
   btn.textContent=orig; btn.disabled=false;
-  if(d.get('wa')){
-    const msg="*Inscricao Mare de Dentro*%0A%0A"+
-      "Nome: "+encodeURIComponent(payload.nome)+"%0A"+
-      "E-mail: "+encodeURIComponent(payload.email)+"%0A"+
-      "WhatsApp: "+encodeURIComponent(payload.whatsapp)+"%0A"+
-      "Investimento: "+encodeURIComponent(payload.investimento)+"%0A"+
-      "Interesse: "+encodeURIComponent(payload.interesse)+"%0A"+
-      "Companhia: "+encodeURIComponent(payload.companhia)+"%0A"+
-      "Observacao: "+encodeURIComponent(payload.obs||'-');
-    window.open("https://wa.me/5571999972427?text="+msg,"_blank");
+  if(!salvo){
+    alert("Não conseguimos enviar agora. Confira sua conexão e toque em enviar de novo.");
+    return false;
+  }
+  try{gtag('event','form_submit',{page_path:location.pathname,lead_source:'mare-de-dentro',transport_type:'beacon'})}catch(_){}
+  const prox=payload.interesse==='Não consigo nesta turma, quero as próximas edições';
+  f.reset(); curStep=1; updateStep();
+  if(prox){
+    f.style.display='none';
+    document.getElementById('proxOk').style.display='block';
+    return false;
   }
   closeModal();
-  f.reset(); curStep=1; updateStep();
   alert("Inscrição enviada! Em breve entramos em contato. Bem-vindo à Maré de Dentro.");
   return false;
 }
