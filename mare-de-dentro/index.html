@@ -17,6 +17,18 @@
 <link rel="preload" as="image" href="assets/hero-900.webp" media="(max-width: 700px)" fetchpriority="high">
 <link rel="preload" as="image" href="assets/hero.webp" media="(min-width: 701px)" fetchpriority="high">
 <!-- Google tag (gtag.js) GA4 G-Y4WQVE1SEH -->
+<!-- Meta Pixel (Mata Quantica - Instituto Gaia Soul) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1101646255591862');
+fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" alt="Meta Pixel" src="https://www.facebook.com/tr?id=1101646255591862&ev=PageView&noscript=1"/></noscript>
+<!-- Fim Meta Pixel -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y4WQVE1SEH"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -1088,6 +1100,7 @@ async function enviar(e){
   }
   try{gtag('event','form_submit',{page_path:location.pathname,lead_source:'mare-de-dentro',transport_type:'beacon'})}catch(_){}
   const prox=payload.interesse==='Não consigo nesta turma, quero as próximas edições';
+  try{ if(window.fbq){ if(prox){fbq('trackCustom','ListaProximaEdicao',{content_name:'mare-de-dentro'})} else {fbq('track','Lead',{content_name:'mare-de-dentro',value:2970,currency:'BRL'})} } }catch(_){}
   f.reset(); curStep=1; updateStep();
   if(prox){
     f.style.display='none';
