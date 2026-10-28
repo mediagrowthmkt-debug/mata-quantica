@@ -465,11 +465,61 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
 .inst-close{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.3rem,2.6vw,1.8rem);color:var(--moss);margin-top:clamp(36px,5vw,52px)}
 @media(max-width:1000px){.proj-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.proj-grid{grid-template-columns:1fr}}
+
+/* preço em destaque 28-10-26 */
+.pricecard{max-width:760px;margin:clamp(40px,6vw,70px) auto 0;text-align:center;background:linear-gradient(160deg,#0C2E35,#103B44);color:#EAE3D3;border:1px solid rgba(205,174,115,.45);border-radius:28px;padding:clamp(30px,5vw,52px) clamp(22px,4vw,48px);box-shadow:0 40px 80px -40px rgba(0,0,0,.55)}
+.pricecard .pk{font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold-soft)}
+.pricecard .pv{font-family:'Cormorant Garamond',serif;font-size:clamp(3.2rem,9vw,5.4rem);line-height:1;color:#F6F1E7;margin-top:12px}
+.pricecard .pv small{font-family:'Jost',sans-serif;font-size:.9rem;letter-spacing:.08em;opacity:.75;margin-left:6px}
+.pricecard .pd{font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.08em;color:var(--gold-soft);margin-top:12px}
+.pricecard ul{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 10px;margin:24px 0 0;padding:0}
+.pricecard li{font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.04em;border:1px solid rgba(234,227,211,.22);border-radius:30px;padding:7px 14px;color:#F3EDDF}
+.pricecard .btn{margin-top:30px;background:var(--cta);color:#fff}
+.pricecard .btn:hover{background:var(--cta-hover)}
+.pricecard .pf{font-size:.95rem;font-style:italic;opacity:.8;margin-top:16px}
+.enroll .price .v{font-size:clamp(3rem,8vw,4.8rem)!important;color:#F6F1E7}
+.mpricebox{margin:18px 0 4px;background:rgba(244,238,225,.06);border:1px solid rgba(205,174,115,.5);border-radius:18px;padding:18px 18px 16px;text-align:center}
+.mpricebox .mv{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,7vw,3rem);line-height:1;color:#F6F1E7}
+.mpricebox .mv small{font-family:'Jost',sans-serif;font-size:.8rem;opacity:.75;margin-left:4px}
+.mpricebox .md{font-family:'Jost',sans-serif;font-size:.74rem;letter-spacing:.06em;color:var(--gold-soft);margin-top:8px}
+.mpricebox .mi{font-family:'Jost',sans-serif;font-size:.78rem;line-height:1.55;color:#E6DFCF;margin-top:10px}
+
+.valorbox{background:rgba(232,102,61,.1);border:1px solid var(--cta);border-radius:18px;padding:20px 18px;text-align:center;margin-bottom:6px}
+.valorbox .vk{font-family:'Jost',sans-serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-soft)}
+.valorbox .vv{font-family:'Cormorant Garamond',serif;font-size:clamp(2.6rem,8vw,3.3rem);line-height:1;color:#F6F1E7;margin-top:8px}
+.valorbox .vv small{font-family:'Jost',sans-serif;font-size:.8rem;opacity:.75;margin-left:4px}
+.valorbox .vs,.mpricebox .mvagas,.pricecard .vagas20{display:inline-block;font-family:'Jost',sans-serif;font-weight:500;font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;background:var(--cta);color:#fff;border-radius:30px;padding:7px 16px;margin-top:12px}
+.valorbox .vi{font-family:'Jost',sans-serif;font-size:.78rem;line-height:1.5;color:#E6DFCF;margin-top:10px}
+.pricecard .vagas20{margin-top:18px}
+#mareForm select[name="concorda_com_o_valor"]{border-color:var(--cta)}
+
+.vagasbar{max-width:300px;height:6px;margin:12px auto 0;background:rgba(234,227,211,.18);border-radius:6px;overflow:hidden}
+.vagasbar span{display:block;height:100%;background:var(--cta);border-radius:6px}
+.vagastxt{font-family:'Jost',sans-serif;font-size:.78rem;letter-spacing:.04em;color:#F3EDDF;margin-top:8px}
+
+/* barra fixa de vagas (FOMO) 28-10-26 */
+:root{--fomo-h:44px}
+#fomo{position:fixed;top:0;left:0;right:0;z-index:70;height:var(--fomo-h);display:flex;align-items:center;justify-content:center;gap:14px;padding:0 14px;background:var(--cta);color:#fff;font-family:'Jost',sans-serif;font-size:.8rem;letter-spacing:.04em;cursor:pointer;box-shadow:0 6px 20px -10px rgba(0,0,0,.5)}
+#fomo b{font-weight:600}
+#fomo .fdot{width:9px;height:9px;border-radius:50%;background:#fff;animation:fpulse 1.4s ease-in-out infinite;flex-shrink:0}
+@keyframes fpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+#fomo .fbar{width:110px;height:6px;background:rgba(255,255,255,.3);border-radius:6px;overflow:hidden;flex-shrink:0}
+#fomo .fbar span{display:block;width:50%;height:100%;background:#fff;border-radius:6px}
+#fomo .fcta{border:1px solid rgba(255,255,255,.8);border-radius:30px;padding:5px 14px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap}
+nav{top:var(--fomo-h)!important}
+@media(max-width:700px){:root{--fomo-h:40px}#fomo{gap:9px;font-size:.72rem}#fomo .ftxt,#fomo .fbar{display:none}#fomo .fnum:after{content:" · restam 10 vagas";font-weight:500}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":["Resort","LodgingBusiness","LocalBusiness"],"@id":"https://mataquantica.com.br/#resort","name":"Mata Quântica · Private Eco Resort","alternateName":"Mata Quântica","url":"https://mataquantica.com.br/"},{"@type":"Event","@id":"https://mataquantica.com.br/mare-de-dentro/#event","name":"Maré de Dentro · Imersão na Mata Quântica","description":"Imersão de quatro dias conduzida por Cesar Curti e Marcelo Telles na Mata Quântica, em Maragogipe, Bahia: treinos, yoga, oceanoterapia, experiências na natureza, convivência e descanso.","startDate":"2026-12-04","endDate":"2026-12-07","eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode","image":["https://mataquantica.com.br/mare-de-dentro/assets/hero.jpg"],"url":"https://mataquantica.com.br/mare-de-dentro/","location":{"@type":"Place","name":"Mata Quântica · Private Eco Resort","address":{"@type":"PostalAddress","addressLocality":"Maragogipe","addressRegion":"BA","addressCountry":"BR"}},"performer":[{"@type":"Person","name":"Cesar Curti"},{"@type":"Person","name":"Marcelo Telles"}],"organizer":{"@type":"Organization","name":"Mahamudra Club"},"offers":{"@type":"Offer","price":"2970","priceCurrency":"BRL","availability":"https://schema.org/LimitedAvailability","url":"https://mataquantica.com.br/mare-de-dentro/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Início","item":"https://mataquantica.com.br/"},{"@type":"ListItem","position":2,"name":"Maré de Dentro","item":"https://mataquantica.com.br/mare-de-dentro/"}]},{"@type":"Service","@id":"https://mataquantica.com.br/mare-de-dentro/#service","name":"Imersão Maré de Dentro","serviceType":"Imersão na natureza","url":"https://mataquantica.com.br/mare-de-dentro/","provider":{"@type":"Organization","name":"Mahamudra Club"},"areaServed":{"@type":"Place","name":"Bahia, Brasil"}}]}</script>
 </head>
 <body>
 
+<div id="fomo" onclick="openModal()" role="button" aria-label="Garantir minha vaga">
+  <span class="fdot"></span>
+  <span class="fnum"><b>10/20</b> inscrições</span>
+  <span class="fbar"><span></span></span>
+  <span class="ftxt">Restam apenas <b>10 vagas</b> na primeira turma</span>
+  <span class="fcta">Garantir vaga</span>
+</div>
 <nav id="nav">
   <div class="brand">MAHAMUDRA<b>club</b></div>
   <div class="links">
@@ -655,7 +705,14 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
     </div>
     <div class="space-end">
       <p>Natureza por todos os lados. Conforto para viver cada momento.</p>
-      <button type="button" class="btn cta-pulse" onclick="openModal()">Quero conhecer a Maré de Dentro</button>
+    </div>
+    <div class="pricecard">
+      <div class="pk">Sua participação na Maré de Dentro</div>
+      <div class="pv">R$ 2.970<small>por pessoa</small></div>
+      <div class="pd">04 a 07 de dezembro de 2026 · Mata Quântica · Maragogipe, Bahia</div>
+      <ul><li>Hospedagem</li><li>Alimentação</li><li>Traslado de barco</li><li>Programação completa</li><li>Treinos, yoga e oceanoterapia</li><li>Paddle, caiaque e bike aquática</li></ul>
+      <button type="button" class="btn cta-pulse" onclick="openModal()">Quero garantir minha vaga</button>
+      <p class="vagas20">Apenas 20 vagas na primeira turma</p><div class="vagasbar"><span style="width:50%"></span></div><div class="vagastxt">10 das 20 vagas já foram preenchidas</div>
     </div>
   </div>
 </section>
@@ -933,11 +990,16 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
     <button class="close" onclick="closeModal()" aria-label="Fechar">&times;</button>
     <div class="mkicker">Inscrição · Turma de abertura</div>
     <h3>Garanta sua vaga na primeira turma.</h3>
-    <div class="mprice">04 a 07 de dezembro de 2026 · <b>R$ 2.970 por pessoa</b></div>
+    <div class="mpricebox">
+      <div class="mv">R$ 2.970<small>por pessoa</small></div>
+      <div class="md">04 a 07 de dezembro de 2026 · Mata Quântica, Bahia</div>
+      <div class="mvagas">Apenas 20 vagas</div><div class="vagasbar"><span style="width:50%"></span></div><div class="vagastxt">10 das 20 vagas já foram preenchidas</div>
+      <div class="mi">Hospedagem, alimentação, traslado de barco e toda a programação incluídos: treinos, yoga, oceanoterapia, banho de floresta, paddle e caiaque.</div>
+    </div>
     <form class="form" id="mareForm" onsubmit="return enviar(event)" style="background:transparent;border:none;padding:0;margin-top:24px;backdrop-filter:none">
       <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
       <div class="steps-bar"><div class="steps-fill" id="stepsFill"></div></div>
-      <div class="step-count" id="stepCount">Passo 1 de 4</div>
+      <div class="step-count" id="stepCount">Passo 1 de 5</div>
 
       <div class="step active" data-step="1">
         <label class="fl">Seu nome</label>
@@ -985,6 +1047,23 @@ footer .fine{margin-top:22px;font-size:.72rem;opacity:.4;font-family:'Jost',sans
         <textarea name="obs" placeholder="Opcional"></textarea>
       </div>
 
+      <div class="step" data-step="5">
+        <div class="valorbox">
+          <div class="vk">Último passo · confirme o valor</div>
+          <div class="vv">R$ 2.970<small>por pessoa</small></div>
+          <div class="vs">Apenas 20 vagas na primeira turma</div><div class="vagasbar"><span style="width:50%"></span></div><div class="vagastxt">10 das 20 vagas já foram preenchidas</div>
+          <div class="vi">Hospedagem, alimentação, traslado de barco e toda a programação incluídos.</div>
+        </div>
+        <label class="fl">Você está de acordo com o valor de R$ 2.970 por pessoa?</label>
+        <select name="concorda_com_o_valor">
+          <option value="">Selecione uma opção</option>
+          <option>Sim, estou de acordo com o valor</option>
+          <option>Sim, e quero saber as formas de pagamento</option>
+          <option>Ainda não, quero conversar antes</option>
+          <option>Não, no momento não cabe no meu orçamento</option>
+        </select>
+      </div>
+
       <div class="step-nav">
         <button type="button" class="step-back" id="stepBack" onclick="prevStep()" style="display:none">Voltar</button>
         <button type="button" class="btn cta-pulse" id="stepNext" onclick="nextStep()">Continuar</button>
@@ -1024,7 +1103,7 @@ function closeModal(){document.getElementById('modalOv').classList.remove('open'
 addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 
 // formulario step by step
-let curStep=1; const totSteps=4;
+let curStep=1; const totSteps=5;
 function updateStep(){
   document.querySelectorAll('.step').forEach(s=>s.classList.toggle('active',+s.dataset.step===curStep));
   document.getElementById('stepsFill').style.width=(curStep/totSteps*100)+'%';
@@ -1057,6 +1136,7 @@ function validStep(){
   if(curStep===2 && !f.investimento.value){f.investimento.focus();return false;}
   if(curStep===3 && !f.interesse.value){f.interesse.focus();return false;}
   if(curStep===4 && !f.companhia.value){f.companhia.focus();return false;}
+  if(curStep===5 && !f.concorda_com_o_valor.value){f.concorda_com_o_valor.focus();return false;}
   return true;
 }
 function nextStep(){if(validStep()&&curStep<totSteps){curStep++;updateStep();}}
@@ -1078,7 +1158,7 @@ async function enviar(e){
   const payload={
     nome:(d.get('nome')||'').trim(), email:(d.get('email')||'').trim(), whatsapp:(d.get('whatsapp')||'').trim(),
     investimento:d.get('investimento')||'', interesse:d.get('interesse')||'',
-    companhia:d.get('companhia')||'', obs:d.get('obs')||'',
+    companhia:d.get('companhia')||'', obs:d.get('obs')||'', concorda_com_o_valor:d.get('concorda_com_o_valor')||'',
     company_website:d.get('company_website')||''
   };
   Object.assign(payload,origemLead());
