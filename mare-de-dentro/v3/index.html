@@ -602,7 +602,7 @@ nav{top:var(--fomo-h)!important}
     <p class="meta">Mata Quântica Private Eco Resort · Maragogipe, Bahia<br>Hospedagem, alimentação, programação e traslado de barco incluídos</p>
     <div class="heroBtn">
       <button type="button" class="btn cta-pulse" onclick="openModal()">Quero participar da Maré de Dentro</button>
-      <a href="#convite" style="display:block;margin-top:20px;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#F6F1E7;opacity:.86">Ou conheça a imersão primeiro</a>
+      <a href="#inscricao" style="display:block;margin-top:20px;font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#F6F1E7;opacity:.86">Ver valores e garantir minha vaga</a>
     </div>
   </div>
   <div class="scrollcue"><span>Role</span><span class="line"></span></div>
@@ -620,7 +620,7 @@ nav{top:var(--fomo-h)!important}
         <p>E cuidar de si fica para quando houver tempo.</p>
         <p class="stress">Até que você percebe: o tempo precisa ser reservado.</p>
         <p>A Maré de Dentro é esse convite. Quatro dias para interromper a sequência de obrigações e dedicar atenção ao corpo, às relações e à vida que está acontecendo agora.</p>
-        <a class="link" href="#agenda">Conheça o ritmo dos quatro dias</a>
+        <a class="link" href="#inscricao">Quero garantir minha vaga</a>
       </div>
       <div class="media"><img src="assets/aerea-casa.webp" alt="Vista aérea da propriedade entre a mata e o mar" width="1400" height="788"></div>
     </div>
@@ -782,7 +782,6 @@ nav{top:var(--fomo-h)!important}
           <span class="igav"><img src="assets/ig/avatar.webp" alt="Foto de perfil da Mata Quântica" width="160" height="160" loading="lazy"></span>
           <div class="igprof-id">
             <div class="iguser">mataquantica.eco</div>
-            <a class="igfollow" href="https://www.instagram.com/mataquantica.eco/" target="_blank" rel="noopener">Seguir no Instagram</a>
           </div>
         </div>
         <div class="igbio"><b>Private Eco Resort</b><p>Um refúgio entre a Mata Atlântica e o mar<br>Hospedagem, casamentos, Experiências<br>Natureza, privacidade e conexão<br>Bahia - Brasil</p></div>
@@ -802,7 +801,6 @@ nav{top:var(--fomo-h)!important}
         <div class="igbar">
           <span class="igav sm"><img src="assets/ig/avatar.webp" alt="" width="64" height="64"></span>
           <b>mataquantica.eco</b>
-          <a class="igver" id="igVer" href="#" target="_blank" rel="noopener">Ver no Instagram</a>
         </div>
         <div class="igstage" id="igStage"></div>
         <div class="igdots" id="igDots"></div>
@@ -1071,7 +1069,6 @@ nav{top:var(--fomo-h)!important}
   <div class="wave"><svg viewBox="0 0 40 14" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 7c4-6 8-6 12 0s8 6 12 0 8-6 12 0"/></svg></div>
   <h4>Maré de Dentro</h4>
   <div class="sub">04 a 07 de dezembro de 2026 · Mata Quântica, Bahia</div>
-  <div class="explore" role="navigation" aria-label="Explore a Mata Quântica" style="margin:26px 0 18px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;font-family:'Jost',sans-serif;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;opacity:.8"><a href="/">Início</a><a href="/hospedagem-exclusiva-bahia/">Hospedagem exclusiva</a><a href="/casa-mar/">Casa Mar</a><a href="/passeio-de-saveiro/">Passeio de saveiro</a><a href="/reveillon/">Réveillon</a><a href="/blog/reveillon-longe-da-multidao-bahia/">Réveillon longe da multidão</a></div>
   <div class="partner">Uma experiência <b>Mahamudra Club</b> · Instituto Gaia Soul</div>
   <div class="fine">© Maré de Dentro. Todos os direitos reservados.</div>
   <style>
@@ -1349,7 +1346,7 @@ async function enviar(e){
       if(k<it.midias.length-1){const r=document.createElement('button');r.type='button';r.className='igcar r';r.innerHTML='&#8250;';r.setAttribute('aria-label','Próxima foto');r.onclick=()=>{k++;render()};stage.appendChild(r)}
       dots.innerHTML=it.midias.map((_,j)=>'<i class="'+(j===k?'on':'')+'"></i>').join('');
     }else dots.innerHTML='';
-    ver.href=it.permalink;
+    
     if(it.midias.length>1&&k+1<it.midias.length){const pre=new Image();pre.src=it.midias[k+1].src}
   }
   function abrir(i){lastFocus=document.activeElement;cur=i;k=0;M.hidden=false;document.body.style.overflow='hidden';render();document.getElementById('igX').focus()}
